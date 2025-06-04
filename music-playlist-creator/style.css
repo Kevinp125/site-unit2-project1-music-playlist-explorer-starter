@@ -69,7 +69,7 @@ footer{
 }
 
 .modal-overlay {
-    display: none; /* Hidden by default */
+    display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -81,8 +81,9 @@ footer{
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    background-color: var(--comic-red);
+    color: var(--comic-bg);
+    margin: 15% auto; /* 15% from tgbebuttfrikdnikrklivddthe top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */

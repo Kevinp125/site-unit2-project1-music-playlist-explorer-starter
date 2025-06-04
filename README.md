@@ -1,4 +1,5 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
+Below is the link which includes all assignemnt details. If you scroll on link you will find all milestones.
+https://courses.codepath.org/courses/site/unit/1#!assignment
 
 ## Unit Assignment: Music Playlist Explorer
 
