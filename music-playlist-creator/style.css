@@ -1,8 +1,26 @@
+:root { /*The root selector allows me to define the global variables that can be used in rest of css code just need to reference them with var( )*/
+    --comic-bg: #FFFCF2; /*All custome properties in CSS require the -- in front of them*/
+    --comic-yellow: #FFD60A;
+    --comic-red: #E63946;
+    --comic-blue: #457B9D;
+    --comic-black: #1D1D1D;
+}
+
+
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Comic Neue', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: var(--comic-bg);
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--comic-red);
+    color: var(--comic-black);
 }
 
 .modal-overlay {
