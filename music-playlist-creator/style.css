@@ -28,6 +28,24 @@ footer{
     background-color:var(--comic-red);
     width: auto;
     height: 35px;
+
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    border-style: solid;
+    border-color: var(--comic-black);
+    border-width: 2px;
+    width: 250px;
+}
+
+.likes-incard{
+    display: flex;
+    gap: 10px;
+    justify-content: left;
 }
 
 .modal-overlay {
