@@ -4,7 +4,7 @@
 
 Submitted by: **Kevin Pereda**
 
-Estimated time spent: **30mins** hours spent in total
+Estimated time spent: **2:05** hours spent in total
 
 Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
 
