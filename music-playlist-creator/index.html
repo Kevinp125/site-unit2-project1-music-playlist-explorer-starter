@@ -25,7 +25,7 @@
             
             <!--Inside playlist-cards section we are going to place articles which are the individual playlist cards themeseleves-->
 
-            <article> 
+            <article onclick="openModal()"> <!--Here calling open modal to test if modal is working-->
                 <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
                 <h2>Playlist Title</h2>
                 <p>Creator Name</p>
@@ -96,10 +96,10 @@
     </main>
 
     <!--Below outside of our main tags since the modal really isnt part of the playlist cards we have a div containing the modal structure-->
-    <div class="modal-overlay">
+    <div id = "modal" class="modal-overlay">
         <div class="modal-content">
             <span class="close">&times;</span> <!--&times is the close symbol-->
-            
+
             <!--Creating an aside below for playlist picture that will go to the left of the Title and name-->
             <aside> 
                 <img id="playlist-image" src="assets/img/playlist.png" alt="Playlist Image" width = 200px>
