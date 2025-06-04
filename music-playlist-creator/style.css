@@ -23,6 +23,13 @@ header{
     color: var(--comic-black);
 }
 
+footer{
+    display: flex;
+    background-color:var(--comic-red);
+    width: auto;
+    height: 35px;
+}
+
 .modal-overlay {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
