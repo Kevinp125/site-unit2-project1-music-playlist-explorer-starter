@@ -4,7 +4,7 @@
 
 Submitted by: **Kevin Pereda**
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: **2:05** hours spent in total
 
 Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
 
@@ -16,7 +16,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD
   - [ ] Dynamically render playlists on the homepage using JavaScript.
     - [ ] Playlists should be shown in grid view.
     - [ ] Playlist images should be reasonably sized (at least 6 playlists on your laptop when full screen; large enough that the playlist components detailed in the next feature are legible).
-  - [ ] Fetch data from a provided Javascript file and use it to create interactive playlist tiles.
+  - [ ] Fetch data from a provided Javascript file and use it to create interactive playlist  tiles.
 
 - [ ] **Playlist Components**
   - [ ] Each tile should display the playlist's:

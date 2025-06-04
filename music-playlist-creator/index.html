@@ -15,12 +15,148 @@
 </head>
 <body>
     <header>
-        <!-- Your header content here -->
+        <h1>Music Playlist Explorer</h1> <!--h1 because it defines what our webpage is about and it goes in the header only one of these-->        
     </header>
 
-    <main> 
-        <!-- Your main content here -->
+    <!--Main tag is where all well, main important content of page will go. In this case it will be all the playlist cards-->
+    <main>
+
+        <section class="playlist-cards"> <!--This section will contain all of the cards and will be styled with a grid so they all appear nicely and can adjust row / col size depending on different screen sizes-->
+            
+            <!--Inside playlist-cards section we are going to place articles which are the individual playlist cards themeseleves-->
+
+            <article onclick="openModal()"> <!--Here calling open modal to test if modal is working-->
+                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
+                <h2>Playlist Title</h2>
+                <p>Creator Name</p>
+                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
+                <p>5</p>
+            </article>
+
+            <article> 
+                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
+                <h2>Playlist Title</h2>
+                <p>Creator Name</p>
+                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
+                <p>5</p>
+            </article>
+            
+            <article> 
+                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
+                <h2>Playlist Title</h2>
+                <p>Creator Name</p>
+                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
+                <p>5</p>
+            </article>
+
+            <article> 
+                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
+                <h2>Playlist Title</h2>
+                <p>Creator Name</p>
+                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
+                <p>5</p>
+            </article>
+
+            <article> 
+                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
+                <h2>Playlist Title</h2>
+                <p>Creator Name</p>
+                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
+                <p>5</p>
+            </article>
+
+
+            <article> 
+                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
+                <h2>Playlist Title</h2>
+                <p>Creator Name</p>
+                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
+                <p>5</p>
+            </article>
+
+            <article> 
+                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
+                <h2>Playlist Title</h2>
+                <p>Creator Name</p>
+                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
+                <p>5</p>
+            </article>
+
+            <article> 
+                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
+                <h2>Playlist Title</h2>
+                <p>Creator Name</p>
+                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
+                <p>5</p>
+            </article>
+
+
+        </section> 
+        
     </main>
+
+    <!--Below outside of our main tags since the modal really isnt part of the playlist cards we have a div containing the modal structure-->
+    <div id = "modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close">&times;</span> <!--&times is the close symbol-->
+
+            <!--Creating an aside below for playlist picture that will go to the left of the Title and name-->
+            <aside> 
+                <img id="playlist-image" src="assets/img/playlist.png" alt="Playlist Image" width = 200px>
+            </aside>
+
+
+            <h1 id="playlist-title"> Playlist Title </h1> <!--***Ask since modal is over the original webpage if its okay to use h1 here again***-->
+
+            <p id="playlist-creator">Creator Name</p>
+            
+            <!--After the aside for playlist image and Playlist title / creator name I am going to start an unordered list for all of the songs in the playlist-->
+            <ul>
+                <li>
+                    <img id="song-image" src="assets/img/song.png" alt="Song Image"  width = 150px>
+                    
+                    <!--Incluiding this div so that I can put all the Song information in a flex col within the li flex-row-->
+                    <div>
+                        <h2>Song Title</h2>
+                        <p>Artist Name</p>
+                        <p>Album Name</p>
+                    </div>
+
+                    <p id = "time">0:00</p>
+                </li>                
+                
+                <li>
+                    <img id="song-image" src="assets/img/song.png" alt="Song Image" width = 150px>
+                    
+                    <!--Incluiding this div so that I can put all the Song information in a flex col within the li flex-row-->
+                    <div>
+                        <h2>Song Title</h2>
+                        <p>Artist Name</p>
+                        <p>Album Name</p>
+                    </div>
+
+                    <p id = "time">0:00</p>
+                </li>
+
+                <li>
+                    <img id="song-image" src="assets/img/song.png" alt="Song Image" width = 150px>
+                    
+                    <!--Incluiding this div so that I can put all the Song information in a flex col within the li flex-row-->
+                    <div>
+                        <h2>Song Title</h2>
+                        <p>Artist Name</p>
+                        <p>Album Name</p>
+                    </div>
+
+                    <p id = "time">0:00</p>
+                </li>
+
+            </ul>
+
+
+        </div>
+    </div>
+
 
     <footer>
         <!-- Your footer content here -->
