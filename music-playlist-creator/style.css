@@ -78,6 +78,13 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
     border-width: 2px;
     width: 300px;
     border-radius: 15px;
+    transition: transform 0.3s ease; /* allows the hover scaling to not be sudden */
+}
+
+.card:hover {
+    transform: scale(1.03); /* Grow the card a little bit so you can notice effect% */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    cursor: pointer; /*Change cursor symbol so user nows they can click*/
 }
 
 .card-content-padding{
@@ -98,7 +105,7 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
 }
 
 .modal-overlay {
-    display: block; /* Hidden by default */
+    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
