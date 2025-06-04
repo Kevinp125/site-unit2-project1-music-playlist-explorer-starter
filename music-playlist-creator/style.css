@@ -140,7 +140,7 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
 }
 
 .song-image{
-    width: 25%;
+    width: 20%;
     border-radius: 10px;
 }
 .close {
