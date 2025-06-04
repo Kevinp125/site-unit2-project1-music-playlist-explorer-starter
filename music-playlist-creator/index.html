@@ -154,15 +154,19 @@
     <!--Below outside of our main tags since the modal really isnt part of the playlist cards we have a div containing the modal structure-->
     <div id = "modal" class="modal-overlay">
         <div class="modal-content">
-            <span class="close">&times;</span> <!--&times is the close symbol-->
+            <div>
+                <span class="close">&times;</span> <!--&times is the close symbol-->
+            </div>
+        
 
-            <!--Creating an aside below for playlist picture that will go to the left of the Title and name-->
-            <aside> 
-                <img id="playlist-image" src="assets/img/playlist.png" alt="Playlist Image" width = 200px>
+            <!--Creating an aside below for playlist picture and title / information that goes on top of modal since it has an inner div-->
+            <aside class="playlist-info"> 
+                <img id="modal-playlist-image" src="assets/img/playlist.png" alt="Playlist Image">
                 
-                <h1 id="playlist-title"> Playlist Title </h1> <!--***Ask since modal is over the original webpage if its okay to use h1 here again***-->
-
-                <p id="playlist-creator">Creator Name</p>
+                <div class="playlist-description-aside" > <!--Making a seperate div since we want these two things to stack on top of each other but be next to the image-->
+                    <h1 id="playlist-title"> Playlist Title </h1> <!--***Ask since modal is over the original webpage if its okay to use h1 here again***-->
+                    <p id="playlist-creator">Creator Name</p>
+                </div>
             </aside>
 
             

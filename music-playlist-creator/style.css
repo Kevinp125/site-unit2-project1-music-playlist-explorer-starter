@@ -31,6 +31,11 @@ footer{
 
 }
 
+ul, li{
+    margin: 0;
+    padding: 0;
+}
+
 .playlist-cards{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*This line makes as many columns of size 250 px fit onto the webpage*/
@@ -81,13 +86,32 @@ footer{
 }
 
 .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     background-color: var(--comic-red);
     color: var(--comic-bg);
     margin: 15% auto; /* 15% from tgbebuttfrikdnikrklivddthe top and centered */
-    padding: 20px;
+    padding: 40px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 60%; /* Could be more or less, depending on screen size */
     border-radius: 15px;
+}
+
+#modal-playlist-image{
+    border-radius: 10px;
+    width: 30%;
+
+}
+.playlist-info{
+    display: flex;
+    gap: 50px;
+
+
+}
+
+.playlist-description-aside{
+    font-size: 20px;
 }
 
 .close {
