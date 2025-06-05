@@ -143,6 +143,7 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
 }
 
 .playlist-description-aside{
+    overflow: scroll;
     font-size: 20px;
 }
 
@@ -174,7 +175,7 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
     display: flex;
     align-items: center;
     justify-content: center; /* align to left */
-    transform: translateX(-85px); 
+    transform: translateX(-75px); 
 }   
 
 .shuffle-btn-text {
