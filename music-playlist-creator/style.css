@@ -88,8 +88,7 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
 }
 
 .card-content-padding{
-    padding-left: 17px;
-
+    padding-left: 10px;
 }
 
 .playlist-image{
@@ -122,8 +121,8 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
     flex-direction: column;
     justify-content: flex-start;
     gap: 25px;
-    background-color:darkgrey;
-    color: white;
+    background-color: darkgrey;
+    color: var(--comic-bg);
     margin: 15% auto; /* 15% from tgbebuttfrikdnikrklivddthe top and centered */
     padding: 40px;
     border: 1px solid #888;
@@ -152,7 +151,7 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
     border-radius: 10px;
 }
 .close {
-    color: red;
+    color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
