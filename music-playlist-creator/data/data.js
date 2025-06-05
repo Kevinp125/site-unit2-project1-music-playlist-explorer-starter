@@ -8,7 +8,7 @@ const data = [
     "songs": [
       { "title": "Bags", "artist": "Clairo", "album": "Immunity", "time": "4:20", "song_art": "assets/img/song.png" },
       { "title": "Sofia", "artist": "Clairo", "album": "Immunity", "time": "3:09", "song_art": "assets/img/song.png" },
-      { "title": "Amoeba", "artist": "Clairo", "album": "Sling", "time": "3:42", "song_art": "assets/img/song.png" }
+      { "title": "Amoeba", "artist": "Clairo", "album": "Sling", "time": "3:42", "song_art": "assets/img/song.png" },
     ]
   },
   {

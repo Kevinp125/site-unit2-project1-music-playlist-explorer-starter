@@ -8,17 +8,24 @@ function openModal(data) {
   modal.style.display = "block"; //when modal is opened change style to block so it is visible
 
   //grab the playlist aside tags by their id so we can alter their textContent to reflect the information inside the data.js
-  let modalImg = document.getElementById('modal-playlist-image');
-  let modalPlaylistTitle = document.getElementById("playlist-title")
-  let modalPlaylistCreator = document.getElementById("playlist-creator")
+  const modalImg = document.getElementById('modal-playlist-image');
+  const modalPlaylistTitle = document.getElementById("playlist-title");
+  const modalPlaylistCreator = document.getElementById("playlist-creator");
+  const songList = document.getElementById("song-list");
 
   //updating all the playlist info in the modal dynamically
   modalImg.src = data.playlist_art;
   modalPlaylistTitle.textContent = data.playlist_name;
   modalPlaylistCreator.textContent = data.playlist_author;
 
-  //next part is to populate the songs in a playlist. Now since this is more varying because there could be more songs in one playlist. They can get added or removed we have to create the li elements and append them to the song container.
+  //next part is to populate the songs in a playlist. Now since this is more varying because there could be more songs in one playlist. They can get added or removed we have to create the li elements and append them to the song container. We achieve this through createSongBanner helper function
 
+  songList.innerHTML = ""; //before populating the modal with all the songs it is important for us to clear the innerHTML of the <ul> tag so that the same duplicate songs arent added everytime user clicks
+
+  //finally just loop through this cards array of song objects and call the create SongBanner for each of them.
+  data.songs.forEach((song) => {
+      createSongBanner(song);
+  })
 
 }
 
@@ -39,7 +46,7 @@ const playlistCards = document.querySelector(".playlist-cards"); //getting the p
 //function will make a card using JS
 const createPlaylistCard = function(card){
 
-  let playlistArticle = document.createElement('article'); //creates an <article> element
+  const playlistArticle = document.createElement('article'); //creates an <article> element
   playlistArticle.className = 'card'; //allows us to give the article its proper class
 
   playlistArticle.addEventListener("click", () => { //want to pass in the card data when we open the modal so that we can populate modal information
@@ -88,9 +95,9 @@ populatePlaylistCardSection();
 //helper function is going to create a song banner and append it to the unordered list inside our modal
 function createSongBanner(song){
 
-  let songList = document.getElementById("song-list"); //grabbing the <ul> tag which is the parent of the list of songs so we can append songs to it.
+  const songList = document.getElementById("song-list"); //grabbing the <ul> tag which is the parent of the list of songs so we can append songs to it.
 
-  let songBanner = document.createElement("li"); //creating a <li> element in which all song info is going to go.
+  const songBanner = document.createElement("li"); //creating a <li> element in which all song info is going to go.
 
   //Add all the song info inside of our li element exactly how I had it in the HTML only difference is its a template literal and we can fill in info with the data.
   songBanner.innerHTML += `
