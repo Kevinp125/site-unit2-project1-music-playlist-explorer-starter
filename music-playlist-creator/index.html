@@ -12,10 +12,14 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
+    <!--This links webpage to the google font Comic Neue just to match my theme-->
+
 </head>
 <body>
     <header>
-        <h1>Music Playlist Explorer</h1> <!--h1 because it defines what our webpage is about and it goes in the header only one of these-->        
+        <h1 class = "website-header">Music Playlist Explorer</h1> <!--h1 because it defines what our webpage is about and it goes in the header only one of these-->        
     </header>
 
     <!--Main tag is where all well, main important content of page will go. In this case it will be all the playlist cards-->
@@ -25,69 +29,121 @@
             
             <!--Inside playlist-cards section we are going to place articles which are the individual playlist cards themeseleves-->
 
-            <article onclick="openModal()"> <!--Here calling open modal to test if modal is working-->
-                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
-                <h2>Playlist Title</h2>
-                <p>Creator Name</p>
-                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
-                <p>5</p>
+            <article class = "card" onclick="openModal()"> <!--Here calling open modal to test if modal is working-->
+
+                <img class = "playlist-image" src="assets/img/playlist.png" alt="Playlist image placeholder">
+
+                <div class = "card-content-padding"> <!--Wrapping everything I want moved right slightly in this div-->
+                    <h2>Playlist Title</h2>
+                    <p>Creator Name</p>
+
+                    <div class = "likes-incard">
+                        <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 40px>
+                        <p>5</p>
+                    </div>
+                </div>
+
             </article>
 
-            <article> 
-                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
-                <h2>Playlist Title</h2>
-                <p>Creator Name</p>
-                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
-                <p>5</p>
+            <article class = "card"> 
+
+                <img class = "playlist-image" src="assets/img/playlist.png" alt="Playlist image placeholder">
+
+                <div class = "card-content-padding"> <!--Wrapping everything I want moved right slightly in this div-->
+                    <h2>Playlist Title</h2>
+                    <p>Creator Name</p>
+
+                    <div class = "likes-incard">
+                        <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 40px>
+                        <p>5</p>
+                    </div>
+                </div>
+
             </article>
             
-            <article> 
-                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
-                <h2>Playlist Title</h2>
-                <p>Creator Name</p>
-                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
-                <p>5</p>
+            <article class = "card"> 
+                <img class = "playlist-image" src="assets/img/playlist.png" alt="Playlist image placeholder">
+
+                <div class = "card-content-padding"> <!--Wrapping everything I want moved right slightly in this div-->
+                    <h2>Playlist Title</h2>
+                    <p>Creator Name</p>
+
+                    <div class = "likes-incard">
+                        <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 40px>
+                        <p>5</p>
+                    </div>
+                </div>
             </article>
 
-            <article> 
-                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
-                <h2>Playlist Title</h2>
-                <p>Creator Name</p>
-                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
-                <p>5</p>
+            <article class = "card">
+                <img class = "playlist-image" src="assets/img/playlist.png" alt="Playlist image placeholder">
+
+                <div class = "card-content-padding"> <!--Wrapping everything I want moved right slightly in this div-->
+                    <h2>Playlist Title</h2>
+                    <p>Creator Name</p>
+
+                    <div class = "likes-incard">
+                        <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 40px>
+                        <p>5</p>
+                    </div>
+                </div>
             </article>
 
-            <article> 
-                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
-                <h2>Playlist Title</h2>
-                <p>Creator Name</p>
-                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
-                <p>5</p>
+            <article class = "card"> 
+                <img class = "playlist-image" src="assets/img/playlist.png" alt="Playlist image placeholder">
+
+                <div class = "card-content-padding"> <!--Wrapping everything I want moved right slightly in this div-->
+                    <h2>Playlist Title</h2>
+                    <p>Creator Name</p>
+
+                    <div class = "likes-incard">
+                        <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 40px>
+                        <p>5</p>
+                    </div>
+                </div>
             </article>
 
 
-            <article> 
-                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
-                <h2>Playlist Title</h2>
-                <p>Creator Name</p>
-                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
-                <p>5</p>
+            <article class = "card"> 
+                <img class = "playlist-image" src="assets/img/playlist.png" alt="Playlist image placeholder">
+
+                <div class = "card-content-padding"> <!--Wrapping everything I want moved right slightly in this div-->
+                    <h2>Playlist Title</h2>
+                    <p>Creator Name</p>
+
+                    <div class = "likes-incard">
+                        <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 40px>
+                        <p>5</p>
+                    </div>
+                </div>
             </article>
 
-            <article> 
-                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
-                <h2>Playlist Title</h2>
-                <p>Creator Name</p>
-                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
-                <p>5</p>
+            <article class = "card"> 
+                <img class = "playlist-image" src="assets/img/playlist.png" alt="Playlist image placeholder">
+
+                <div class = "card-content-padding"> <!--Wrapping everything I want moved right slightly in this div-->
+                    <h2>Playlist Title</h2>
+                    <p>Creator Name</p>
+
+                    <div class = "likes-incard">
+                        <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 40px>
+                        <p>5</p>
+                    </div>
+                </div>
             </article>
 
-            <article> 
-                <img src="assets/img/playlist.png" alt="Playlist image placeholder" width = 200px>
-                <h2>Playlist Title</h2>
-                <p>Creator Name</p>
-                <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 30px>
-                <p>5</p>
+            <article class = "card"> 
+                <img class = "playlist-image" src="assets/img/playlist.png" alt="Playlist image placeholder">
+
+                <div class = "card-content-padding"> <!--Wrapping everything I want moved right slightly in this div-->
+                    <h2>Playlist Title</h2>
+                    <p>Creator Name</p>
+
+                    <div class = "likes-incard">
+                        <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 40px>
+                        <p>5</p>
+                    </div>
+                </div>
             </article>
 
 
@@ -98,22 +154,26 @@
     <!--Below outside of our main tags since the modal really isnt part of the playlist cards we have a div containing the modal structure-->
     <div id = "modal" class="modal-overlay">
         <div class="modal-content">
-            <span class="close">&times;</span> <!--&times is the close symbol-->
+            <div>
+                <span class="close">&times;</span> <!--&times is the close symbol-->
+            </div>
+        
 
-            <!--Creating an aside below for playlist picture that will go to the left of the Title and name-->
-            <aside> 
-                <img id="playlist-image" src="assets/img/playlist.png" alt="Playlist Image" width = 200px>
+            <!--Creating an aside below for playlist picture and title / information that goes on top of modal since it has an inner div-->
+            <aside class="playlist-info"> 
+                <img id="modal-playlist-image" src="assets/img/playlist.png" alt="Playlist Image">
+                
+                <div class="playlist-description-aside" > <!--Making a seperate div since we want these two things to stack on top of each other but be next to the image-->
+                    <h1 id="playlist-title"> Playlist Title </h1> <!--***Ask since modal is over the original webpage if its okay to use h1 here again***-->
+                    <p id="playlist-creator">Creator Name</p>
+                </div>
             </aside>
 
-
-            <h1 id="playlist-title"> Playlist Title </h1> <!--***Ask since modal is over the original webpage if its okay to use h1 here again***-->
-
-            <p id="playlist-creator">Creator Name</p>
             
             <!--After the aside for playlist image and Playlist title / creator name I am going to start an unordered list for all of the songs in the playlist-->
             <ul>
                 <li>
-                    <img id="song-image" src="assets/img/song.png" alt="Song Image"  width = 150px>
+                    <img class = "song-image" src="assets/img/song.png" alt="Song Image" >
                     
                     <!--Incluiding this div so that I can put all the Song information in a flex col within the li flex-row-->
                     <div>
@@ -126,7 +186,7 @@
                 </li>                
                 
                 <li>
-                    <img id="song-image" src="assets/img/song.png" alt="Song Image" width = 150px>
+                    <img class = "song-image" src="assets/img/song.png" alt="Song Image">
                     
                     <!--Incluiding this div so that I can put all the Song information in a flex col within the li flex-row-->
                     <div>
@@ -139,7 +199,7 @@
                 </li>
 
                 <li>
-                    <img id="song-image" src="assets/img/song.png" alt="Song Image" width = 150px>
+                    <img class = "song-image" src="assets/img/song.png" alt="Song Image">
                     
                     <!--Incluiding this div so that I can put all the Song information in a flex col within the li flex-row-->
                     <div>
@@ -148,7 +208,7 @@
                         <p>Album Name</p>
                     </div>
 
-                    <p id = "time">0:00</p>
+                    <p id = "time">0:00</p> 
                 </li>
 
             </ul>
@@ -159,7 +219,7 @@
 
 
     <footer>
-        <!-- Your footer content here -->
+        
     </footer>
     <script src="data/data.js"></script>
     <script src="script.js"></script>

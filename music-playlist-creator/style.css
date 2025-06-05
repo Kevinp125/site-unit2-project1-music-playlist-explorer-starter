@@ -1,12 +1,111 @@
+:root { /*The root selector allows me to define the global variables that can be used in rest of css code just need to reference them with var( )*/
+    --comic-bg: #FFFCF2; /*All custome properties in CSS require the -- in front of them*/
+    --comic-yellow: #FFD60A;
+    --comic-red: #E63946;
+    --comic-blue: #457B9D;
+    --comic-black: #1D1D1D;
+}
+
+
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Comic Neue', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: var(--comic-bg);
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--comic-red);
+    color: var(--comic-black);
+}
+
+footer{
+    display: flex;
+    background-color:var(--comic-red);
+    width: auto;
+    height: 35px;
+
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    display:flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid var(--comic-bg);
+    border-width: 4px;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 3px 3px 0px var(--comic-black);
+}
+
+li:nth-child(odd){ /*This is just to alternate the song titles color ever odd li item is pink*/
+    background-color: #ffaaa5;
+}
+
+li:nth-child(even){ /*every even list item is a soft yellow on a black text cause if its white it is hard to read*/
+    background-color: #fffd82;
+    color: var(--comic-black);
+}
+
+
+.playlist-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*This line makes as many columns of size 250 px fit onto the webpage*/
+    column-gap: 100px;
+    row-gap: 100px;
+    padding: 50px;
+}
+.card{
+    background-color: var(--comic-blue);
+    color: var(--comic-yellow);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border-style: solid;
+    border-color: var(--comic-black);
+    border-width: 2px;
+    width: 300px;
+    border-radius: 15px;
+    transition: transform 0.3s ease; /* allows the hover scaling to not be sudden */
+}
+
+.card:hover {
+    transform: scale(1.03); /* Grow the card a little bit so you can notice effect% */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    cursor: pointer; /*Change cursor symbol so user nows they can click*/
+}
+
+.card-content-padding{
+    padding-left: 10px;
+}
+
+.playlist-image{
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.likes-incard{
+    display: flex;
+    gap: 10px;
+    justify-content: left;
 }
 
 .modal-overlay {
-    display: block; /* Hidden by default */
+    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -18,14 +117,39 @@ body {
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 25px;
+    background-color: var(--comic-red);
+    color: var(--comic-bg);
+    margin: 15% auto; /* 15% from tgbebuttfrikdnikrklivddthe top and centered */
+    padding: 40px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 60%; /* Could be more or less, depending on screen size */
     border-radius: 15px;
 }
 
+#modal-playlist-image{
+    border-radius: 10px;
+    width: 40%;
+
+}
+.playlist-info{
+    display: flex;
+    gap: 50px;
+
+
+}
+
+.playlist-description-aside{
+    font-size: 20px;
+}
+
+.song-image{
+    width: 20%;
+    border-radius: 10px;
+}
 .close {
     color: #aaa;
     float: right;
