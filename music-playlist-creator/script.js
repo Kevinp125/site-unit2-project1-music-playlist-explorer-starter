@@ -1,7 +1,30 @@
 const modal = document.getElementById("modal"); //get the modal by its id
 const closeBtn = document.getElementsByClassName("close")[0]; //getting the close span remember that getting elementsByClassName returns a collection so we index into zero to get first instancce of close button
+const playlistCards = document.querySelector(".playlist-cards"); //getting the playlist-cards section from the HTML dom so we can append playlist articles to it.
 
 /* *** BELOW FUNCTIONS HAVE TO DUE WITH OPENING AND CLOSING THE MODAL ***  */
+
+//helper function is going to create a song banner and append it to the unordered list inside our modal
+function createSongBanner(song){
+
+  const songList = document.getElementById("song-list"); //grabbing the <ul> tag which is the parent of the list of songs so we can append songs to it.
+
+  const songBanner = document.createElement("li"); //creating a <li> element in which all song info is going to go.
+
+  //Add all the song info inside of our li element exactly how I had it in the HTML only difference is its a template literal and we can fill in info with the data.
+  songBanner.innerHTML += `
+    <img class = "song-image" src=${song.song_art} alt="Song Image" >
+      <div>
+        <h2>${song.title}</h2>
+        <p>${song.artist}</p>
+        <p>${song.album}</p>
+      </div>
+    <p>${song.time}</p>
+  `
+
+  //finally append this newly created banner onto the ul tag songList
+  songList.appendChild(songBanner);
+}
 
 //function receives data object so that when modal is opened we can fill it in with all of a playlists data
 function openModal(data) { 
@@ -38,13 +61,10 @@ window.onclick = function(event) { //also attached the onclick handler to the wi
   }
 }
 
-/* *** BELOW FUNCTIONS HAVE TO DUE WITH DYNAMICALLY POPULATING PLAYLISTS AND CREATING SONG BANNERS***  */
-
-const playlistCards = document.querySelector(".playlist-cards"); //getting the playlist-cards section from the HTML dom so we can append playlist articles to it.
-
+/* *** BELOW FUNCTIONS HAVE TO DUE WITH DYNAMICALLY POPULATING PLAYLISTS***  */
 
 //function will make a card using JS
-const createPlaylistCard = function(card){
+function createPlaylistCard(card){
 
   const playlistArticle = document.createElement('article'); //creates an <article> element
   playlistArticle.className = 'card'; //allows us to give the article its proper class
@@ -115,25 +135,3 @@ function populatePlaylistCardSection(){
 }
 
 populatePlaylistCardSection();
-
-//helper function is going to create a song banner and append it to the unordered list inside our modal
-function createSongBanner(song){
-
-  const songList = document.getElementById("song-list"); //grabbing the <ul> tag which is the parent of the list of songs so we can append songs to it.
-
-  const songBanner = document.createElement("li"); //creating a <li> element in which all song info is going to go.
-
-  //Add all the song info inside of our li element exactly how I had it in the HTML only difference is its a template literal and we can fill in info with the data.
-  songBanner.innerHTML += `
-    <img class = "song-image" src=${song.song_art} alt="Song Image" >
-      <div>
-        <h2>${song.title}</h2>
-        <p>${song.artist}</p>
-        <p>${song.album}</p>
-      </div>
-    <p>${song.time}</p>
-  `
-
-  //finally append this newly created banner onto the ul tag songList
-  songList.appendChild(songBanner);
-}
