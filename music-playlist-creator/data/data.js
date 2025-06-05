@@ -4,6 +4,7 @@ const data = [
     "playlist_name": "Bedroom Pop Vibes",
     "playlist_author": "Beast Boy",
     "playlist_art": "assets/img/playlist.png",
+    "like_count": "4",
     "songs": [
       { "title": "Bags", "artist": "Clairo", "album": "Immunity", "time": "4:20" },
       { "title": "Sofia", "artist": "Clairo", "album": "Immunity", "time": "3:09" },
@@ -15,6 +16,7 @@ const data = [
     "playlist_name": "Late Night Drive",
     "playlist_author": "Batman",
     "playlist_art": "assets/img/playlist.png",
+    "like_count": "20",
     "songs": [
       { "title": "Hush", "artist": "The Marías", "album": "CINEMA", "time": "3:39" },
       { "title": "Cariño", "artist": "The Marías", "album": "CINEMA", "time": "4:12" },
@@ -26,6 +28,7 @@ const data = [
     "playlist_name": "Comic Crush",
     "playlist_author": "Starfire",
     "playlist_art": "assets/img/playlist.png",
+    "like_count": "12",
     "songs": [
       { "title": "Feeling Lonely", "artist": "boy pablo", "album": "Soy Pablo", "time": "2:42" },
       { "title": "Everytime", "artist": "boy pablo", "album": "Roy Pablo", "time": "2:45" },
@@ -34,11 +37,12 @@ const data = [
   },
   {
     "playlistID": 4,
-    "playlist_name": "Chill Lofi",
+    "playlist_name": "Chill Indie",
     "playlist_author": "Invincible",
     "playlist_art": "assets/img/playlist.png",
+    "like_count": "8",
     "songs": [
-      { "title": "Lo Que Siento", "artist": "Cuco", "album": "Lo Que Siento - Single", "time": "4:03" },
+      { "title": "Feel it", "artist": "D4vd", "album": "Withered", "time": "4:03" },
       { "title": "Keeping Tabs", "artist": "Cuco", "album": "Para Mi", "time": "3:30" },
       { "title": "Lover Is a Day", "artist": "Cuco", "album": "Songs4u", "time": "7:13" }
     ]
@@ -48,6 +52,7 @@ const data = [
     "playlist_name": "Lazy Days",
     "playlist_author": "Spiderman",
     "playlist_art": "assets/img/playlist.png",
+    "like_count": "19",
     "songs": [
       { "title": "Stanley", "artist": "Faye Webster", "album": "Atlanta Millionaires Club", "time": "3:34" },
       { "title": "Right Side of My Neck", "artist": "Faye Webster", "album": "Atlanta Millionaires Club", "time": "2:12" },
@@ -59,6 +64,7 @@ const data = [
     "playlist_name": "Color Pop",
     "playlist_author": "Atom Eve",
     "playlist_art": "assets/img/playlist.png",
+    "like_count": "54",
     "songs": [
       { "title": "Care", "artist": "Beabadoobee", "album": "Fake It Flowers", "time": "4:05" },
       { "title": "Talk", "artist": "Beabadoobee", "album": "Beatopia", "time": "3:25" },
@@ -70,6 +76,7 @@ const data = [
     "playlist_name": "Sunset Arcade",
     "playlist_author": "RexSplode",
     "playlist_art": "assets/img/playlist.png",
+    "like_count": "5",
     "songs": [
       { "title": "My Kind of Woman", "artist": "Mac DeMarco", "album": "2", "time": "3:10" },
       { "title": "So American", "artist": "Portugal. The Man", "album": "In the Mountain in the Cloud", "time": "3:52" },
@@ -81,6 +88,7 @@ const data = [
     "playlist_name": "Spider-Verse Vibes",
     "playlist_author": "Miles Morales",
     "playlist_art": "assets/img/playlist.png",
+    "like_count": "6",
     "songs": [
       { "title": "Telepatía", "artist": "Kali Uchis", "album": "Sin Miedo (del Amor y Otros Demonios)", "time": "3:34" },
       { "title": "Frío", "artist": "Omar Apollo", "album": "Ivory (Marfil)", "time": "3:16" },
