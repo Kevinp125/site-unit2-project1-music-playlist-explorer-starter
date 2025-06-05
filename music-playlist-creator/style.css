@@ -184,6 +184,27 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
     transform: translateX(-10px); 
 }
 
+.website-header-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#website-header{
+    margin-left: 30px;
+}
+
+.navigation-links{
+    margin-right: 30px;
+    text-decoration: none;
+    color: var(--comic-yellow);
+}
+
+.navigation-links:hover{
+    text-decoration: underline;
+}
+
 ul{ /*Had to add this because if not anyting in unordered list adds a bullet point by default*/
     list-style-type: none
 }
