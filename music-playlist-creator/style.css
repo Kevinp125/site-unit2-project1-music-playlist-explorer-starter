@@ -164,6 +164,25 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
     cursor: pointer;
 }
 
+.shuffle-btn{
+    background: url('assets/img/comic-bubble.png') no-repeat center center; /*Button background is the image I got*/
+    background-size: contain; /*This makes bakcground image scale to fit inside container*/
+    width: 300px;
+    height: 100px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* align to left */
+    transform: translateX(-85px); 
+}   
+
+.shuffle-btn-text {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 18px;
+    transform: translateX(-10px); 
+}
+
 ul{ /*Had to add this because if not anyting in unordered list adds a bullet point by default*/
     list-style-type: none
 }
