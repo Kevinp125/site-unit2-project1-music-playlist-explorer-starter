@@ -121,8 +121,8 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
     flex-direction: column;
     justify-content: flex-start;
     gap: 25px;
-    background-color: var(--comic-red);
-    color: var(--comic-bg);
+    background-color:darkgrey;
+    color: white;
     margin: 15% auto; /* 15% from tgbebuttfrikdnikrklivddthe top and centered */
     padding: 40px;
     border: 1px solid #888;
@@ -151,7 +151,7 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
     border-radius: 10px;
 }
 .close {
-    color: #aaa;
+    color: red;
     float: right;
     font-size: 28px;
     font-weight: bold;
