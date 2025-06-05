@@ -1,6 +1,8 @@
 const modal = document.getElementById("modal"); //get the modal by its id
 const closeBtn = document.getElementsByClassName("close")[0]; //getting the close span remember that getting elementsByClassName returns a collection so we index into zero to get first instancce of close button
 const playlistCards = document.querySelector(".playlist-cards"); //getting the playlist-cards section from the HTML dom so we can append playlist articles to it.
+const songList = document.getElementById("song-list");
+let currentPlaylistData = null; // this is a variable that we will update inside of openModal so that we can use this info for our randomize song section
 
 /* *** BELOW FUNCTIONS HAVE TO DUE WITH OPENING AND CLOSING THE MODAL ***  */
 
@@ -29,12 +31,13 @@ function createSongBanner(song){
 //function receives data object so that when modal is opened we can fill it in with all of a playlists data
 function openModal(data) { 
   modal.style.display = "block"; //when modal is opened change style to block so it is visible
+  currentPlaylistData = data; //now currentPlaylistdata can be used in the randomize songs function.
+  console.log(currentPlaylistData);
 
   //grab the playlist aside tags by their id so we can alter their textContent to reflect the information inside the data.js
   const modalImg = document.getElementById('modal-playlist-image');
   const modalPlaylistTitle = document.getElementById("playlist-title");
   const modalPlaylistCreator = document.getElementById("playlist-creator");
-  const songList = document.getElementById("song-list");
 
   //updating all the playlist info in the modal dynamically
   modalImg.src = data.playlist_art;
@@ -49,7 +52,6 @@ function openModal(data) {
   data.songs.forEach((song) => {
       createSongBanner(song);
   })
-
 }
 
 closeBtn.onclick = function() { //attached onclick event handler to the close button when clicked the modals display will be set to none again
@@ -134,4 +136,24 @@ function populatePlaylistCardSection(){
   }   
 }
 
+
 populatePlaylistCardSection();
+
+/* BELOW Logic WILL HANDLE SHUFFLING THE SONGS */
+
+const shuffleBtn = document.querySelector(".shuffle-btn"); //get the shuffleBtn so we can add an eventlistener to it
+
+//Function has inside is an event listener so that when shuffle is clicked songs are shuffled by using sort to randomize actual data first clearing whats on the front end and re rendering it with helper function
+function randomizeSongs(){
+
+  shuffleBtn.addEventListener("click", () =>{
+    
+    currentPlaylistData.songs.sort(() => Math.random() - 0.5);
+    songList.innerHTML = "";
+    currentPlaylistData.songs.forEach((song) => {
+      createSongBanner(song);
+    })
+  })
+}
+
+randomizeSongs(); 
