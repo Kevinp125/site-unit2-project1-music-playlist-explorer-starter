@@ -64,7 +64,7 @@ const createPlaylistCard = function(card){
       <p>${card.playlist_author}</p>
         <div class = "likes-incard">
           <img class = "like-img" src="assets/img/unlikedHeart.svg" alt="Unliked heart image" width = 35px height = 35px>
-          <p>${card.like_count}</p>
+          <p class = "like-count">${card.like_count}</p>
         </div>
     </div>
   `
@@ -74,18 +74,23 @@ const createPlaylistCard = function(card){
 
   /* ***BELOW CODE IS GOING TO BE FOR ALL LIKE BUTTON FUNCTIONALITY *** */
 
-  const likeImg = playlistArticle.querySelector(".like-img");
+  const likeImg = playlistArticle.querySelector(".like-img"); //fetch the likeImg tag so that we can change the icon when user clicks it
+  const likeCount = playlistArticle.querySelector(".like-count"); //fetch the p tag that contains the like count because we need to update it when user likes song
 
   //let us add an event listener to the likeImg which is the heart. Whenever it is clicked we want to toggle the kind of heart that is being displayed. We are attaching listener inside this loop because if we do it outside the playlist card html might not even be rendered yet.
   likeImg.addEventListener("click", (event)=>{
 
     event.stopPropagation(); // prevent modal open. Event propogation stops bubbling which is when an event gets sent up to the parent and triggers it too aka the modal open.
-    if(likeImg.src.includes("unlikedHeart")){
-      likeImg.src = "assets/img/likedHeart.svg";
+    if(likeImg.src.includes("unlikedHeart")){ //if it is not liked
+      likeImg.src = "assets/img/likedHeart.svg"; //changed it to liked logo
+      card.like_count++; //update the like count
+      likeCount.textContent = card.like_count; //and change the textContent of likeCount p tag since it increased
     }
 
-    else{
-      likeImg.src = "assets/img/unlikedHeart.svg";
+    else{ //if it is liked
+      likeImg.src = "assets/img/unlikedHeart.svg"; //change icon to unliked
+      card.like_count--; //decrease the like count
+      likeCount.textContent = card.like_count; ///and update the p tag accordingly
     }
 
 
