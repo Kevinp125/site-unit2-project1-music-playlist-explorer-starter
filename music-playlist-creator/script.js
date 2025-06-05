@@ -49,15 +49,21 @@ const createPlaylistCard = function(card){
   playlistCards.appendChild(playlistArticle);
 }
 
-if(data === null){
-  let emptyData = document.createElement('p');
-  emptyData.textContent = 'No playlists added';
-  document.body.appendChild(emptyData); 
+//function populates the playlistcard section by iterating over data and calling our createPlayListCard helper function on each piece of data.
+
+function populatePlaylistCardSection(){
+   //being a little extra defensive here if the data is not null also make sure if there even is any data
+  if(!data || data.length === 0){ //if there ISNT data then we just want to add a p tag displaying the error message
+    let emptyData = document.createElement('p');
+    emptyData.textContent = 'No playlists added!';
+    playlistCards.appendChild(emptyData); 
+  }
+
+  else{
+    data.forEach((card) => {
+      createPlaylistCard(card);
+    })
+  }   
 }
 
-else{
-  data.forEach((card) => {
-    createPlaylistCard(card);
-  })
-}
-
+populatePlaylistCardSection();
