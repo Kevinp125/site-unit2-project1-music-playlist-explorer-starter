@@ -63,7 +63,7 @@ const createPlaylistCard = function(card){
       <h2>${card.playlist_name}</h2>
       <p>${card.playlist_author}</p>
         <div class = "likes-incard">
-          <img src="assets/img/unlikedHeart.png" alt="Unliked heart image" width = 35px height = 35px>
+          <img src="assets/img/unlikedHeart.svg" alt="Unliked heart image" width = 35px height = 35px>
           <p>${card.like_count}</p>
         </div>
     </div>
@@ -113,3 +113,6 @@ function createSongBanner(song){
   //finally append this newly created banner onto the ul tag songList
   songList.appendChild(songBanner);
 }
+
+
+/* ***BELOW CODE IS GOING TO BE FOR ALL LIKE BUTTON FUNCTIONALITY *** */
