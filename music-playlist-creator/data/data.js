@@ -1,4 +1,4 @@
-[
+const data = [
   {
     "playlistID": 1,
     "playlist_name": "Bedroom Pop Vibes",
