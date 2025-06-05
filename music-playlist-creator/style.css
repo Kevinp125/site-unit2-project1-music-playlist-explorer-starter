@@ -151,7 +151,7 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
     border-radius: 10px;
 }
 .close {
-    color: #aaa;
+    color: red;
     float: right;
     font-size: 28px;
     font-weight: bold;
