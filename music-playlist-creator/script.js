@@ -3,9 +3,30 @@ const closeBtn = document.getElementsByClassName("close")[0]; //getting the clos
 
 /* *** BELOW FUNCTIONS HAVE TO DUE WITH OPENING AND CLOSING THE MODAL ***  */
 
-function openModal() { //mighgt also need to pass object with modal details
-  //will need to fill this out at some point with all the modal information by getting elements by id i believbe and populating html tags
-  modal.style.display = "block";
+//function receives data object so that when modal is opened we can fill it in with all of a playlists data
+function openModal(data) { 
+  modal.style.display = "block"; //when modal is opened change style to block so it is visible
+
+  //grab the playlist aside tags by their id so we can alter their textContent to reflect the information inside the data.js
+  const modalImg = document.getElementById('modal-playlist-image');
+  const modalPlaylistTitle = document.getElementById("playlist-title");
+  const modalPlaylistCreator = document.getElementById("playlist-creator");
+  const songList = document.getElementById("song-list");
+
+  //updating all the playlist info in the modal dynamically
+  modalImg.src = data.playlist_art;
+  modalPlaylistTitle.textContent = data.playlist_name;
+  modalPlaylistCreator.textContent = data.playlist_author;
+
+  //next part is to populate the songs in a playlist. Now since this is more varying because there could be more songs in one playlist. They can get added or removed we have to create the li elements and append them to the song container. We achieve this through createSongBanner helper function
+
+  songList.innerHTML = ""; //before populating the modal with all the songs it is important for us to clear the innerHTML of the <ul> tag so that the same duplicate songs arent added everytime user clicks
+
+  //finally just loop through this cards array of song objects and call the create SongBanner for each of them.
+  data.songs.forEach((song) => {
+      createSongBanner(song);
+  })
+
 }
 
 closeBtn.onclick = function() { //attached onclick event handler to the close button when clicked the modals display will be set to none again
@@ -17,7 +38,7 @@ window.onclick = function(event) { //also attached the onclick handler to the wi
   }
 }
 
-/* *** BELOW FUNCTIONS HAVE TO DUE WITH DYNAMICALLY POPULATING PLAYLISTS ***  */
+/* *** BELOW FUNCTIONS HAVE TO DUE WITH DYNAMICALLY POPULATING PLAYLISTS AND CREATING SONG BANNERS***  */
 
 const playlistCards = document.querySelector(".playlist-cards"); //getting the playlist-cards section from the HTML dom so we can append playlist articles to it.
 
@@ -25,9 +46,12 @@ const playlistCards = document.querySelector(".playlist-cards"); //getting the p
 //function will make a card using JS
 const createPlaylistCard = function(card){
 
-  let playlistArticle = document.createElement('article'); //creates an <article> element
+  const playlistArticle = document.createElement('article'); //creates an <article> element
   playlistArticle.className = 'card'; //allows us to give the article its proper class
-  playlistArticle.setAttribute("onclick", "openModal()"); //might have to pass stuff to this openModal function at some point!! Set aattribute allows on click functionality to work
+
+  playlistArticle.addEventListener("click", () => { //want to pass in the card data when we open the modal so that we can populate modal information
+    openModal(card);
+  })
 
   //below just made one fat template literal work smarter not harder. It is the exact same html I had except for the insertion of the variables from our card object which contains playlist details
 
@@ -67,3 +91,25 @@ function populatePlaylistCardSection(){
 }
 
 populatePlaylistCardSection();
+
+//helper function is going to create a song banner and append it to the unordered list inside our modal
+function createSongBanner(song){
+
+  const songList = document.getElementById("song-list"); //grabbing the <ul> tag which is the parent of the list of songs so we can append songs to it.
+
+  const songBanner = document.createElement("li"); //creating a <li> element in which all song info is going to go.
+
+  //Add all the song info inside of our li element exactly how I had it in the HTML only difference is its a template literal and we can fill in info with the data.
+  songBanner.innerHTML += `
+    <img class = "song-image" src=${song.song_art} alt="Song Image" >
+      <div>
+        <h2>${song.title}</h2>
+        <p>${song.artist}</p>
+        <p>${song.album}</p>
+      </div>
+    <p>${song.time}</p>
+  `
+
+  //finally append this newly created banner onto the ul tag songList
+  songList.appendChild(songBanner);
+}
