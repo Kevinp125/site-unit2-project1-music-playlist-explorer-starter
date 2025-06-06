@@ -24,17 +24,17 @@ function createFeatureSongsList(songs){
   })
 }
 
-function featurePlaylistLoad(randomIdx){
+function featurePlaylistLoad(index){
   const featArt = document.querySelector("#feature-playlist-art");
   const featName = document.querySelector("#feature-playlist-name");
   const songList = document.querySelector(".feature-playlist-songs");
   
-  featArt.src = data[randomIdx].playlist_art;
-  featName.textContent = data[randomIdx].playlist_name;
+  featArt.src = data[index].playlist_art;
+  featName.textContent = data[index].playlist_name;
 
   songList.innerHTML = " ";
 
-  createFeatureSongsList(data[randomIndex].songs);
+  createFeatureSongsList(data[index].songs);
 
 }
 

@@ -217,20 +217,14 @@ function populatePlaylistCardSection(filteredData){
 
 const shuffleBtn = document.querySelector(".shuffle-btn"); //get the shuffleBtn so we can add an eventlistener to it
 
-//Function has inside is an event listener so that when shuffle is clicked songs are shuffled by using sort to randomize actual data first clearing whats on the front end and re rendering it with helper function
-function randomizeSongs(){
-
-  shuffleBtn.addEventListener("click", () =>{
-    
-    currentPlaylistData.songs.sort(() => Math.random() - 0.5);
+//Below randomizes songs... Event listener so that when shuffle is clicked songs are shuffled by using sort to randomize actual data first clearing whats on the front end and re rendering it with helper function
+shuffleBtn.addEventListener("click", () =>{
+    currentPlaylistData.songs.sort(() => Math.random() - 0.5); //Math.rand() gives number 0-1 so subtracting 0.5 gives us 50/50 chance of number being (-) or (+). How sort works is it gets - numbers and puts them back and + forward. It will go through songs and randomly place them.
     songList.innerHTML = "";
     currentPlaylistData.songs.forEach((song) => {
       createSongBanner(song);
     })
-  })
-}
-
-randomizeSongs(); 
+})
 
 /* *** HANDLING CRUD OPERATIONS WITH THIS CODE *** */
 
