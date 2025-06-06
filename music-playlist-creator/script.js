@@ -4,6 +4,7 @@ const playlistCards = document.querySelector(".playlist-cards"); //getting the p
 const songList = document.getElementById("song-list");
 const formOverlay = document.getElementById("form-Overlay");
 const formCloseBtn = document.getElementById("form-close");
+const formContainer = document.getElementById("form-container");
 const addPlaylistbtn = document.getElementById("add-song-link");
 let currentPlaylistData = null; // this is a variable that we will update inside of openModal so that we can use this info for our randomize song section
 
@@ -142,6 +143,7 @@ function populatePlaylistCardSection(){
   }
 
   else{
+    playlistCards.innerHTML = ""; 
     data.forEach((card) => {
       createPlaylistCard(card);
     })
@@ -172,4 +174,78 @@ randomizeSongs();
 
 /* *** HANDLING CRUD OPERATIONS WITH THIS CODE *** */
 
+const songContainer = document.getElementById("song-container");
+const addSongBtn = document.getElementById("add-song-btn");
 
+function addSongGroupToForm(){
+  const newSong = document.createElement("div");
+
+
+    newSong.innerHTML = `
+    ---------
+    <div class="song-input-group">
+      <label>Title</label>
+      <input type="text" name="songTitle[]" required>
+    </div> 
+
+    <div class="song-input-group">
+      <label>Artist</label>
+      <input type="text" name="songArtist[]" required>
+    </div> 
+
+    <div class="song-input-group">
+      <label>Album</label>
+      <input type="text" name="songAlbum[]" required>
+    </div> 
+
+    <div class="song-input-group">
+      <label>Time</label>
+      <input type="text" name="songTime[]" required>
+    </div>
+  `;
+
+  songContainer.insertBefore(newSong, addSongBtn); //insert the newSong before the button so button is always towards bottom
+}
+
+addSongBtn.addEventListener("click", () => {
+  addSongGroupToForm();
+})
+
+//below event listenr waits for add playlist form to be submitted
+formContainer.addEventListener("submit", (event) =>{
+  event.preventDefault(); 
+  
+  const formData = new FormData(formContainer); //creating object using js built in feature. Pass it form after submit and variable holds all information
+
+  const playlistName = formData.get("playlistName"); //since i gave inputs name in html now I can use get method by their name and store it in variable
+  const playlistAuthor = formData.get("playlistAuthor");
+
+  //below is getting all the information from the song or songs if users added more than one
+  const songTitles = formData.getAll("songTitle[]");
+  const songArtists = formData.getAll("songArtist[]");
+  const songAlbums = formData.getAll("songAlbum[]");
+  const songTimes = formData.getAll("songTime[]");
+
+  //just map through the songTitles array and keep track of index and then put each thing back into songs as an array of song objects
+  const songs = songTitles.map((title, index) => ({
+    title,
+    artist: songArtists[index],
+    album: songAlbums[index],
+    time: songTimes[index],
+    "song_art": "assets/img/song.png",
+  }));
+
+  const newPlaylist = {
+    "id": data.length+2,
+    "playlist_name": playlistName,
+    "playlist_author": playlistAuthor,
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": "0",
+    "songs": songs,
+  }
+
+  data.push(newPlaylist);
+
+  populatePlaylistCardSection();
+
+})
