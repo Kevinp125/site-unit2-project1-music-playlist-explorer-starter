@@ -98,6 +98,7 @@ function createPlaylistCard(card){
       <h2>${card.playlist_name}</h2>
       <p>${card.playlist_author}</p>
         <div class = "likes-incard">
+          <img class = "trash-can" src="assets/img/trash-bin.svg" alt="Trashbin" width = 40px height = 40px>
           <img class = "like-img" src="assets/img/unlikedHeart.svg" alt="Unliked heart image" width = 35px height = 35px>
           <p class = "like-count">${card.like_count}</p>
         </div>
@@ -107,7 +108,7 @@ function createPlaylistCard(card){
   //finally we want to append this playlistArticle to the playlistCards section we selected at the top of our code.
   playlistCards.appendChild(playlistArticle);
 
-  /* ***BELOW CODE IS GOING TO BE FOR ALL LIKE BUTTON FUNCTIONALITY *** */
+  /* ***BELOW CODE IS GOING TO BE FOR ALL CARD BUTTON FUNCTIONALITY *** */
 
   const likeImg = playlistArticle.querySelector(".like-img"); //fetch the likeImg tag so that we can change the icon when user clicks it
   const likeCount = playlistArticle.querySelector(".like-count"); //fetch the p tag that contains the like count because we need to update it when user likes song
@@ -130,11 +131,25 @@ function createPlaylistCard(card){
 
 
   })
+
+  const trashBtn = playlistArticle.querySelector(".trash-can");
+
+  trashBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const cardIdx = data.findIndex((d) => d.playlistID === card.playlistID);
+    console.log(cardIdx);
+    data.splice(cardIdx, 1);
+    populatePlaylistCardSection();
+  })
+
+
 }
 
 //function populates the playlistcard section by iterating over data and calling our createPlayListCard helper function on each piece of data.
 
 function populatePlaylistCardSection(){
+  playlistCards.innerHTML = "";
+
    //being a little extra defensive here if the data is not null also make sure if there even is any data
   if(!data || data.length === 0){ //if there ISNT data then we just want to add a p tag displaying the error message
     let emptyData = document.createElement('p');
@@ -143,7 +158,6 @@ function populatePlaylistCardSection(){
   }
 
   else{
-    playlistCards.innerHTML = ""; 
     data.forEach((card) => {
       createPlaylistCard(card);
     })
