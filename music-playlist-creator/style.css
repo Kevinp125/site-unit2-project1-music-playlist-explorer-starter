@@ -8,11 +8,15 @@
 
 
 
-body {
+html,body {
+    height: 100%;
     font-family: 'Comic Neue', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--comic-bg);
+    display: flex;
+    flex-direction: column;
+    
 }
 
 header{
@@ -23,11 +27,15 @@ header{
     color: var(--comic-black);
 }
 
+main{
+    flex: 1;
+}
+
 footer{
-    display: flex;
     background-color:var(--comic-red);
     width: auto;
     height: 35px;
+    min-height: 35px;
 
 }
 
@@ -105,7 +113,7 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
 }
 
 .modal-overlay {
-    display: none; /* Hidden by default */
+    display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -137,15 +145,16 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
 }
 .playlist-info{
     display: flex;
+    flex-wrap: wrap;
     gap: 50px;
 
 
 }
 
 .playlist-description-aside{
-    overflow: scroll;
     font-size: 20px;
 }
+
 
 .song-image{
     width: 20%;
@@ -184,6 +193,78 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
     transform: translateX(-10px); 
 }
 
+.website-header-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#website-header{
+    margin-left: 30px;
+}
+
+.navigation-links{
+    margin-right: 30px;
+    text-decoration: none;
+    color: var(--comic-yellow);
+}
+
+.navigation-links:hover{
+    text-decoration: underline;
+}
+
 ul{ /*Had to add this because if not anyting in unordered list adds a bullet point by default*/
     list-style-type: none
+}
+
+/*Below CSS styles are more specific to the feature page*/
+
+.featured-page-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 50px;
+
+}
+
+.feature-playlist-songs{
+    margin-left: -150px;
+}
+
+#feature-playlist-art{
+    width:60%;
+    border-radius: 10px;
+
+}
+
+#form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: darkgrey;
+    color: var(--comic-bg);
+    margin: 15% auto; /* 15% from top and centered */
+    padding: 40px;
+    border: 1px solid #888;
+    width: 20%; /* Could be more or less, depending on screen size */
+    border-radius: 15px;
+    
+}
+
+#song-container{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.song-input-group{
+    display: flex;
+    flex-direction: column;
 }
