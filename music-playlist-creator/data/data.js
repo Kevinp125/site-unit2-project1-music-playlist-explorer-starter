@@ -21,7 +21,7 @@ const data = [
     "playlist_name": "Late Night Drive",
     "playlist_author": "Batman",
     "playlist_art": "assets/img/playlist.png",
-    "like_count": "20",
+    "like_count": "0",
     "date_added": "2024-04-15T09:00:00Z",
     "songs": [
       { "title": "Hush", "artist": "The Marías", "album": "CINEMA", "time": "3:39", "song_art": "assets/img/song.png" },
