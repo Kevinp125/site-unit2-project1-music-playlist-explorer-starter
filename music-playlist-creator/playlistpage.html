@@ -22,8 +22,9 @@
         <header class = "website-header-container">
             <h1 id="website-header">Music Playlist Explorer</h1> <!--h1 because it defines what our webpage is about and it goes in the header only one of these-->
             <div>
-            <a class = "navigation-links" href="index.html"> Featured</a>
-            <a class = "navigation-links" href="playlistpage.html"> All</a>    
+                <a class = "navigation-links" href="index.html"> Featured</a>
+                <a class = "navigation-links" href="playlistpage.html"> All</a>
+                <a href="#" id="add-song-link" class = "navigation-links">+ Add Song</a>  
             </div>    
         </header>
 
@@ -71,6 +72,62 @@
 
             </div>
         </div>
+
+        <!--Below div will be for add form-->
+        <div class = "modal-overlay">
+            
+            <form id = "form-container">
+                <div>
+                    <span class="close">&times;</span> <!--&times is the close symbol-->
+                </div>
+
+                <h2 style = "margin:0 ">Playlist Info</h2>
+
+
+                <div class = "form-group">
+                    <label for="playlistName"> Playlist Name</label>
+                    <input type="text" name="playlistName" required>
+                </div>
+
+                <div class = "form-group">
+                    <label for="playlistAuthor"> Playlist Author</label>
+                    <input type="text" name = "playlistAuthor" required>
+                </div>
+
+                <h2 style = "margin:0 ">Songs</h2>
+
+                <div id = "song-container">
+
+                    <div class = "song-input-group">
+                        <label for="playlistName">Title</label>
+                        <input type="text" name = "songTitle[]" required>
+                    </div> 
+
+                    <div class = "song-input-group">
+                        <label for="playlistName">Artist</label>
+                        <input type="text" name = "songArtist[]" required>
+                    </div> 
+
+                    <div class = "song-input-group">
+                        <label for="playlistName">Album</label>
+                        <input type="text" name = "songAlbum[]" required>
+                    </div> 
+
+                    <div class = "song-input-group">
+                        <label for="playlistName">Time</label>
+                        <input type="text" name = "songTime[]" required>
+                    </div> 
+
+                    <button type = "button">+ Add Song</button>
+
+                </div>
+
+                <button type = "submit" >Submit!</button>
+        </form>
+
+
+        </div>
+
 
 
         <footer>

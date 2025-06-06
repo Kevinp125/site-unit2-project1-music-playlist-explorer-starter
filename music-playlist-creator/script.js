@@ -158,4 +158,6 @@ function randomizeSongs(){
 
 randomizeSongs(); 
 
+/* *** HANDLING CRUD OPERATIONS WITH THIS CODE *** */
+
 

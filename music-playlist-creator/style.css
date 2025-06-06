@@ -113,7 +113,7 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
 }
 
 .modal-overlay {
-    display: none; /* Hidden by default */
+    display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -236,4 +236,35 @@ ul{ /*Had to add this because if not anyting in unordered list adds a bullet poi
     width:60%;
     border-radius: 10px;
 
+}
+
+#form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: darkgrey;
+    color: var(--comic-bg);
+    margin: 15% auto; /* 15% from top and centered */
+    padding: 40px;
+    border: 1px solid #888;
+    width: 20%; /* Could be more or less, depending on screen size */
+    border-radius: 15px;
+    
+}
+
+#song-container{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.song-input-group{
+    display: flex;
+    flex-direction: column;
 }
