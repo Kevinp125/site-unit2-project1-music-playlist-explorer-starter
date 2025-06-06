@@ -6,6 +6,7 @@ const formOverlay = document.getElementById("form-Overlay");
 const formCloseBtn = document.getElementById("form-close");
 const formContainer = document.getElementById("form-container");
 const addPlaylistbtn = document.getElementById("add-song-link");
+const formSongHeader = document.getElementById("form-song-header");
 let currentPlaylistData = null; // this is a variable that we will update inside of openModal so that we can use this info for our randomize song section
 let editMode = false;
 let editingPlaylistIdx = null //global variables so we can resuse submit form for editing functionality
@@ -60,7 +61,35 @@ function openModal(data) {
 }
 
 addPlaylistbtn.addEventListener("click", () =>{
+  formSongHeader.style.display = "block";
   formOverlay.style.display = "block";
+  formContainer.querySelector('input[name="playlistName"]').value = " ";
+  formContainer.querySelector('input[name="playlistAuthor"]').value = " ";
+
+  songContainer.innerHTML = `
+    <div class = "song-input-group">
+        <label for="playlistName">Title</label>
+        <input type="text" name = "songTitle[]" required>
+    </div> 
+
+    <div class = "song-input-group">
+      <label for="playlistName">Artist</label>
+      <input type="text" name = "songArtist[]" required>
+    </div> 
+
+    <div class = "song-input-group">
+      <label for="playlistName">Album</label>
+      <input type="text" name = "songAlbum[]" required>
+    </div> 
+
+    <div class = "song-input-group">
+      <label for="playlistName">Time</label>
+      <input type="text" name = "songTime[]" required>
+    </div> 
+
+    <button id = "add-song-btn" type = "button">+ Add Song</button>
+  
+  `
 })
 
 modalCloseBtn.onclick = function() { //attached onclick event handler to the close button when clicked the modals display will be set to none again
@@ -153,6 +182,7 @@ function createPlaylistCard(card){
     editMode = true; //update our flags so we know we are in edit mode
 
     formOverlay.style.display = "block"; //show the form
+    formSongHeader.style.display = "none";
 
     formContainer.querySelector('input[name="playlistName"]').value = card.playlist_name;
     formContainer.querySelector('input[name="playlistAuthor"]').value = card.playlist_author;
@@ -160,15 +190,8 @@ function createPlaylistCard(card){
     // Clear existing song inputs
     songContainer.innerHTML = "";
 
-    card.songs.forEach((song, index) => {
-      console.log("Song:", song); // check if you're getting here
-      addSongGroupToForm();
-      
 
 
-      
-
-    })
   })
 
 }
@@ -244,12 +267,8 @@ function addSongGroupToForm(){
     </div>
   `;
 
-  if(editMode){
-    songContainer.appendChild(newSong);
-  }
-  else{ 
-    songContainer.insertBefore(newSong, addSongBtn); //insert the newSong before the button so button is always towards bottom
-  }
+  songContainer.insertBefore(newSong, addSongBtn); //insert the newSong before the button so button is always towards bottom
+
   
   
 }
