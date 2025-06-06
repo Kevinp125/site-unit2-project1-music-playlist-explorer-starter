@@ -145,15 +145,16 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
 }
 .playlist-info{
     display: flex;
+    flex-wrap: wrap;
     gap: 50px;
 
 
 }
 
 .playlist-description-aside{
-    overflow: scroll;
     font-size: 20px;
 }
+
 
 .song-image{
     width: 20%;
