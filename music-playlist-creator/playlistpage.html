@@ -21,10 +21,25 @@
     <body>
         <header class = "website-header-container">
             <h1 id="website-header">Music Playlist Explorer</h1> <!--h1 because it defines what our webpage is about and it goes in the header only one of these-->
+
+
             <div>
+                <input id = "search-bar" type="text" placeholder="Search...">
+                <button id="submit-button">Submit!</button>
+                <button id="clear-button">Clear X</button>
+            </div>
+
+
+            <div>
+                <select name = sortOptions id ="sort-dropdown">
+                    <option value="sort-by">Sort By</option>
+                    <option value="playlist-name">Playlist Name</option>
+                    <option value="like-count">Like Count (Descending)</option>
+                    <option value="date-added">Date added (Recent to oldest)</option>
+                </select>
                 <a class = "navigation-links" href="index.html"> Featured</a>
                 <a class = "navigation-links" href="playlistpage.html"> All</a>
-                <a href="#" id="add-song-link" class = "navigation-links">+ Add Song</a>  
+                <a href="#" id="add-song-link" class = "navigation-links">+ Add Playlist</a>  
             </div>    
         </header>
 
@@ -44,7 +59,7 @@
         <div id = "modal" class="modal-overlay">
             <div class="modal-content">
                 <div>
-                    <span class="close">&times;</span> <!--&times is the close symbol-->
+                    <span class="close" id="modal-close">&times;</span> <!--&times is the close symbol-->
                 </div>
             
 
@@ -74,11 +89,10 @@
         </div>
 
         <!--Below div will be for add form-->
-        <div class = "modal-overlay">
-            
+        <div id ="form-Overlay" class = "modal-overlay">
             <form id = "form-container">
                 <div>
-                    <span class="close">&times;</span> <!--&times is the close symbol-->
+                    <span class="close" id="form-close">&times;</span> <!--&times is the close symbol-->
                 </div>
 
                 <h2 style = "margin:0 ">Playlist Info</h2>
@@ -94,31 +108,31 @@
                     <input type="text" name = "playlistAuthor" required>
                 </div>
 
-                <h2 style = "margin:0 ">Songs</h2>
+                <h2 id = "form-song-header" style = "margin:0 ">Songs</h2>
 
                 <div id = "song-container">
 
                     <div class = "song-input-group">
-                        <label for="playlistName">Title</label>
+                        <label for="songTitle[]">Title</label>
                         <input type="text" name = "songTitle[]" required>
                     </div> 
 
                     <div class = "song-input-group">
-                        <label for="playlistName">Artist</label>
+                        <label for="songArtist[]">Artist</label>
                         <input type="text" name = "songArtist[]" required>
                     </div> 
 
                     <div class = "song-input-group">
-                        <label for="playlistName">Album</label>
+                        <label for="songAlbum[]">Album</label>
                         <input type="text" name = "songAlbum[]" required>
                     </div> 
 
                     <div class = "song-input-group">
-                        <label for="playlistName">Time</label>
+                        <label for="songTime[]">Time</label>
                         <input type="text" name = "songTime[]" required>
                     </div> 
 
-                    <button type = "button">+ Add Song</button>
+                    <button id = "add-song-btn" type = "button">+ Add Song</button>
 
                 </div>
 
