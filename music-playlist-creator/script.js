@@ -315,27 +315,25 @@ searchBar = document.getElementById("search-bar");
 submitBtn = document.getElementById("submit-button");
 clearBtn = document.getElementById("clear-button")
 
-
+//adding event listeners to the enter keypress as well as clicking submit button once that happens we want to call search function
 searchBar.addEventListener("keypress", (e) => {
   if(e.key === 'Enter'){
     search(e.target.value);
   }
 
 })
-
 submitBtn.addEventListener("click", () =>{
   search(searchBar.value);
 })
 
+//add event listner to clear button when we clear we just want to bring all the cards back
 clearBtn.addEventListener("click", () =>{
   searchBar.value = "";
   populatePlaylistCardSection();
 })
 
+//search function looks through the data and filters it based on the playlist name or author user enters
 function search(value){
-
-  console.log(value);
-
 
   let foundPlaylist = null;
   foundPlaylist = data.filter((playlist) => {
@@ -343,8 +341,7 @@ function search(value){
               playlist.playlist_author.toLowerCase().includes(value.toLowerCase()))
   });
 
-  console.log(foundPlaylist);
-
+  //if filter returns an array with length it means we found results
   if(foundPlaylist.length > 0){
     searchMode = true;
     populatePlaylistCardSection(foundPlaylist);
