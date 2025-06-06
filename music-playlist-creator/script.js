@@ -7,7 +7,8 @@ const formCloseBtn = document.getElementById("form-close");
 const formContainer = document.getElementById("form-container");
 const addPlaylistbtn = document.getElementById("add-song-link");
 let currentPlaylistData = null; // this is a variable that we will update inside of openModal so that we can use this info for our randomize song section
-
+let editMode = false;
+let editingPlaylistIdx = null //global variables so we can resuse submit form for editing functionality
 /* *** BELOW FUNCTIONS HAVE TO DUE WITH OPENING AND CLOSING THE MODAL ***  */
 
 //helper function is going to create a song banner and append it to the unordered list inside our modal
@@ -98,6 +99,7 @@ function createPlaylistCard(card){
       <h2>${card.playlist_name}</h2>
       <p>${card.playlist_author}</p>
         <div class = "likes-incard">
+          <img class = "edit" src="assets/img/edit-icon.svg" alt="Edit" width = 40px height = 40px>
           <img class = "trash-can" src="assets/img/trash-bin.svg" alt="Trashbin" width = 40px height = 40px>
           <img class = "like-img" src="assets/img/unlikedHeart.svg" alt="Unliked heart image" width = 35px height = 35px>
           <p class = "like-count">${card.like_count}</p>
@@ -128,8 +130,6 @@ function createPlaylistCard(card){
       card.like_count--; //decrease the like count
       likeCount.textContent = card.like_count; ///and update the p tag accordingly
     }
-
-
   })
   
   //get the trashBtn
@@ -143,6 +143,33 @@ function createPlaylistCard(card){
     populatePlaylistCardSection(); //re render the card section since we deleted something.
   })
 
+  //logic for edit btn on cards
+
+  const editBtn = playlistArticle.querySelector(".edit")
+
+  editBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    editingPlaylistIdx = data.findIndex((d) => d.playlistID === card.playlistID);
+    editMode = true; //update our flags so we know we are in edit mode
+
+    formOverlay.style.display = "block"; //show the form
+
+    formContainer.querySelector('input[name="playlistName"]').value = card.playlist_name;
+    formContainer.querySelector('input[name="playlistAuthor"]').value = card.playlist_author;
+
+    // Clear existing song inputs
+    songContainer.innerHTML = "";
+
+    card.songs.forEach((song, index) => {
+      console.log("Song:", song); // check if you're getting here
+      addSongGroupToForm();
+      
+
+
+      
+
+    })
+  })
 
 }
 
@@ -194,8 +221,6 @@ const addSongBtn = document.getElementById("add-song-btn");
 
 function addSongGroupToForm(){
   const newSong = document.createElement("div");
-
-
     newSong.innerHTML = `
     ---------
     <div class="song-input-group">
@@ -219,7 +244,14 @@ function addSongGroupToForm(){
     </div>
   `;
 
-  songContainer.insertBefore(newSong, addSongBtn); //insert the newSong before the button so button is always towards bottom
+  if(editMode){
+    songContainer.appendChild(newSong);
+  }
+  else{ 
+    songContainer.insertBefore(newSong, addSongBtn); //insert the newSong before the button so button is always towards bottom
+  }
+  
+  
 }
 
 addSongBtn.addEventListener("click", () => {
@@ -262,5 +294,6 @@ formContainer.addEventListener("submit", (event) =>{
   data.push(newPlaylist);
 
   populatePlaylistCardSection();
+
 
 })
