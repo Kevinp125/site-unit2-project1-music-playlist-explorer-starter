@@ -38,7 +38,6 @@ function createSongBanner(song){
 function openModal(data) { 
   modal.style.display = "block"; //when modal is opened change style to block so it is visible
   currentPlaylistData = data; //now currentPlaylistdata can be used in the randomize songs function.
-  console.log(currentPlaylistData);
 
   //grab the playlist aside tags by their id so we can alter their textContent to reflect the information inside the data.js
   const modalImg = document.getElementById('modal-playlist-image');
@@ -65,7 +64,7 @@ addPlaylistbtn.addEventListener("click", () =>{
   formOverlay.style.display = "block";
   formContainer.querySelector('input[name="playlistName"]').value = " ";
   formContainer.querySelector('input[name="playlistAuthor"]').value = " ";
-  
+
 })
 
 modalCloseBtn.onclick = function() { //attached onclick event handler to the close button when clicked the modals display will be set to none again
@@ -89,7 +88,6 @@ function createPlaylistCard(card){
 
   const playlistArticle = document.createElement('article'); //creates an <article> element
   playlistArticle.className = 'card'; //allows us to give the article its proper class
-
   playlistArticle.addEventListener("click", () => { //want to pass in the card data when we open the modal so that we can populate modal information
     openModal(card);
   })
@@ -217,7 +215,6 @@ const addSongBtn = document.getElementById("add-song-btn");
 
 function addSongGroupToForm(){
 
-  console.log("in here");
   const newSong = document.createElement("div");
     newSong.innerHTML = `
     ---------
@@ -276,18 +273,28 @@ formContainer.addEventListener("submit", (event) =>{
     "song_art": "assets/img/song.png",
   }));
 
-  const newPlaylist = {
-    "id": data.length+2,
-    "playlist_name": playlistName,
-    "playlist_author": playlistAuthor,
-    "playlist_art": "assets/img/playlist.png",
-    "like_count": "0",
-    "songs": songs,
+  if(editMode && (editingPlaylistIdx !== null)){
+    data[editingPlaylistIdx].playlist_name = playlistName;
+    data[editingPlaylistIdx].playlist_author = playlistAuthor;
+    
+  }
+  else{
+      const newPlaylist = {
+      "id": data.length+2,
+      "playlist_name": playlistName,
+      "playlist_author": playlistAuthor,
+      "playlist_art": "assets/img/playlist.png",
+      "like_count": "0",
+      "songs": songs,
+    }
+
+    data.push(newPlaylist);
+
   }
 
-  data.push(newPlaylist);
 
   populatePlaylistCardSection();
+  formOverlay.style.display = "none";
 
 
 })
