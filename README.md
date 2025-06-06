@@ -7,7 +7,7 @@ Submitted by: **Kevin Pereda**
 
 Estimated time spent: **22:00** hours spent in total
 
-Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): [Music Playlist Explorer Deployed Site](https://site-unit2-project1-music-playlist-q9nj.onrender.com/)
 
 ### Application Features
 
