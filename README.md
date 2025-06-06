@@ -5,7 +5,7 @@ https://courses.codepath.org/courses/site/unit/1#!assignment
 
 Submitted by: **Kevin Pereda**
 
-Estimated time spent: **20:00** hours spent in total
+Estimated time spent: **22:00** hours spent in total
 
 Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
 

@@ -1,3 +1,5 @@
+
+//all html elements we grabbed below
 const modal = document.getElementById("modal"); //get the modal by its id
 const modalCloseBtn = document.getElementById("modal-close");
 const playlistCards = document.querySelector(".playlist-cards"); //getting the playlist-cards section from the HTML dom so we can append playlist articles to it.
@@ -7,11 +9,16 @@ const formCloseBtn = document.getElementById("form-close");
 const formContainer = document.getElementById("form-container");
 const addPlaylistbtn = document.getElementById("add-song-link");
 const formSongHeader = document.getElementById("form-song-header");
+const sortDropdown = document.getElementById("sort-dropdown");
+
+//Global flags and variables used
 let currentPlaylistData = null; // this is a variable that we will update inside of openModal so that we can use this info for our randomize song section
 let editMode = false;
 let editingPlaylistIdx = null //global variables so we can resuse submit form for editing functionality
 let searchMode = false;
-/* *** BELOW FUNCTIONS HAVE TO DUE WITH OPENING AND CLOSING THE MODAL ***  */
+
+//calling this function up top because all playlist cards should be rendered ASAP. As soon as page loads
+populatePlaylistCardSection();
 
 //helper function is going to create a song banner and append it to the unordered list inside our modal
 function createSongBanner(song){
@@ -60,27 +67,35 @@ function openModal(data) {
   })
 }
 
-addPlaylistbtn.addEventListener("click", () =>{
-  formSongHeader.style.display = "block";
-  formOverlay.style.display = "block";
-  formContainer.querySelector('input[name="playlistName"]').value = " ";
-  formContainer.querySelector('input[name="playlistAuthor"]').value = " ";
-
-})
-
+//function closes the modal
 modalCloseBtn.onclick = function() { //attached onclick event handler to the close button when clicked the modals display will be set to none again
   modal.style.display = "none";
 }
 
+//function closes form modal
 formCloseBtn.onclick = function() {
   formOverlay.style.display = "none";
 }
 
-window.onclick = function(event) { //also attached the onclick handler to the window. If its clicked let us get the event information. If it matches the modal (which is the overlay not the modal-content itself) it means user clicked out of it so hide it again
+//function closes modal if user clicks outside of window
+window.onclick = function(event) { 
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
+
+//takes care of when user clicks the add playlist button. Pops the modal up when button is clicked with empty values
+function addPlaylist(){
+    addPlaylistbtn.addEventListener("click", () =>{
+    formSongHeader.style.display = "block";
+    formOverlay.style.display = "block";
+    formContainer.querySelector('input[name="playlistName"]').value = " ";
+    formContainer.querySelector('input[name="playlistAuthor"]').value = " ";
+  })
+
+}
+
+addPlaylist();
 
 /* *** BELOW FUNCTIONS HAVE TO DUE WITH DYNAMICALLY POPULATING PLAYLISTS***  */
 
@@ -180,6 +195,7 @@ function populatePlaylistCardSection(filteredData){
     playlistCards.appendChild(emptyData); 
   }
 
+  //if our searchMode flag is true it means search function found something and we need to use filtered data to re-render not just the full data array 
   else if(searchMode === true){
     filteredData.forEach((card) => {
       createPlaylistCard(card);
@@ -188,6 +204,7 @@ function populatePlaylistCardSection(filteredData){
     searchMode = false;
   }
 
+  //if searchMode isnt on just popoulate page with all playlists
   else{
     data.forEach((card) => {
       createPlaylistCard(card);
@@ -195,8 +212,6 @@ function populatePlaylistCardSection(filteredData){
   }   
 }
 
-
-populatePlaylistCardSection();
 
 /* BELOW Logic WILL HANDLE SHUFFLING THE SONGS */
 
@@ -222,6 +237,7 @@ randomizeSongs();
 const songContainer = document.getElementById("song-container");
 const addSongBtn = document.getElementById("add-song-btn");
 
+//function adds 4 new inputs for a new song's information when user clicks "Add Song" on form
 function addSongGroupToForm(){
 
   const newSong = document.createElement("div");
@@ -282,6 +298,7 @@ formContainer.addEventListener("submit", (event) =>{
     "song_art": "assets/img/song.png",
   }));
 
+  //if we are in edit mode don't make a new object just edit current values
   if(editMode && (editingPlaylistIdx !== null)){
     data[editingPlaylistIdx].playlist_name = playlistName;
     data[editingPlaylistIdx].playlist_author = playlistAuthor;
@@ -294,6 +311,7 @@ formContainer.addEventListener("submit", (event) =>{
       "playlist_author": playlistAuthor,
       "playlist_art": "assets/img/playlist.png",
       "like_count": "0",
+      "date_added": new Date().toISOString(), //this line creates the current date fir sirtung purposes
       "songs": songs,
     }
 
@@ -301,10 +319,9 @@ formContainer.addEventListener("submit", (event) =>{
 
   }
 
-
+  //once any changes are made whether it be edit or a new card re-render the playlists
   populatePlaylistCardSection();
   formOverlay.style.display = "none";
-
 
 })
 
@@ -315,22 +332,6 @@ searchBar = document.getElementById("search-bar");
 submitBtn = document.getElementById("submit-button");
 clearBtn = document.getElementById("clear-button")
 
-//adding event listeners to the enter keypress as well as clicking submit button once that happens we want to call search function
-searchBar.addEventListener("keypress", (e) => {
-  if(e.key === 'Enter'){
-    search(e.target.value);
-  }
-
-})
-submitBtn.addEventListener("click", () =>{
-  search(searchBar.value);
-})
-
-//add event listner to clear button when we clear we just want to bring all the cards back
-clearBtn.addEventListener("click", () =>{
-  searchBar.value = "";
-  populatePlaylistCardSection();
-})
 
 //search function looks through the data and filters it based on the playlist name or author user enters
 function search(value){
@@ -351,4 +352,72 @@ function search(value){
     
   }
 
+}
+
+//adding event listeners to the enter keypress as well as clicking submit button once that happens we want to call search function
+searchBar.addEventListener("keypress", (e) => {
+  if(e.key === 'Enter'){
+    search(e.target.value);
+  }
+})
+
+submitBtn.addEventListener("click", () =>{
+  search(searchBar.value);
+})
+
+//add event listner to clear button when we clear we just want to bring all the cards back
+clearBtn.addEventListener("click", () =>{
+  searchBar.value = "";
+  populatePlaylistCardSection();
+})
+
+//below code is all sorting logic
+
+sortDropdown.addEventListener("change", (e) => {
+
+  const sortOption = e.target.value;
+
+  if(sortOption === "playlist-name"){
+    sortByName()
+  }
+
+  else if(sortOption === "like-count"){
+    sortByLikes()
+  }
+
+  else if(sortOption === "date-added"){
+    sortByDateAdded()
+  }
+
+})
+
+//sorts by playlist name from A-Z
+function sortByName(){
+  const sortedByName = data.sort((a,b) => {
+    if(a.playlist_name > b.playlist_name) return 1;
+    else if(a.playlist_name < b.playlist_name) return -1;
+    else return 0;
+  })
+
+  populatePlaylistCardSection();
+}
+
+//sorts by likes (highest-lowest)
+function sortByLikes(){
+  const sortedByLikes = data.sort((a,b) => {
+    return b.like_count-a.like_count;
+  })
+
+  populatePlaylistCardSection();
+}
+
+//sorts by Date added (recent to oldest)
+function sortByDateAdded(){
+  const sortedByDateAdded = data.sort((a,b) => {
+    if(a.date_added > b.date_added) return -1;
+    else if(a.date_added < b.date_added) return 1;
+    else return 0;
+  })
+
+  populatePlaylistCardSection();
 }
