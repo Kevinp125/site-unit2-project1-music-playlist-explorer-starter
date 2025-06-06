@@ -65,31 +65,7 @@ addPlaylistbtn.addEventListener("click", () =>{
   formOverlay.style.display = "block";
   formContainer.querySelector('input[name="playlistName"]').value = " ";
   formContainer.querySelector('input[name="playlistAuthor"]').value = " ";
-
-  songContainer.innerHTML = `
-    <div class = "song-input-group">
-        <label for="playlistName">Title</label>
-        <input type="text" name = "songTitle[]" required>
-    </div> 
-
-    <div class = "song-input-group">
-      <label for="playlistName">Artist</label>
-      <input type="text" name = "songArtist[]" required>
-    </div> 
-
-    <div class = "song-input-group">
-      <label for="playlistName">Album</label>
-      <input type="text" name = "songAlbum[]" required>
-    </div> 
-
-    <div class = "song-input-group">
-      <label for="playlistName">Time</label>
-      <input type="text" name = "songTime[]" required>
-    </div> 
-
-    <button id = "add-song-btn" type = "button">+ Add Song</button>
   
-  `
 })
 
 modalCloseBtn.onclick = function() { //attached onclick event handler to the close button when clicked the modals display will be set to none again
@@ -189,9 +165,6 @@ function createPlaylistCard(card){
 
     // Clear existing song inputs
     songContainer.innerHTML = "";
-
-
-
   })
 
 }
@@ -243,6 +216,8 @@ const songContainer = document.getElementById("song-container");
 const addSongBtn = document.getElementById("add-song-btn");
 
 function addSongGroupToForm(){
+
+  console.log("in here");
   const newSong = document.createElement("div");
     newSong.innerHTML = `
     ---------

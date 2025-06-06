@@ -187,6 +187,10 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
     transform: translateX(-75px); 
 }   
 
+.shuffle-btn:hover{
+    color: var(--comic-red);
+}
+
 .shuffle-btn-text {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 18px;
