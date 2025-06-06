@@ -131,15 +131,16 @@ function createPlaylistCard(card){
 
 
   })
-
+  
+  //get the trashBtn
   const trashBtn = playlistArticle.querySelector(".trash-can");
 
+  //add an event listener for when its clicked
   trashBtn.addEventListener("click", (event) => {
-    event.stopPropagation();
-    const cardIdx = data.findIndex((d) => d.playlistID === card.playlistID);
-    console.log(cardIdx);
-    data.splice(cardIdx, 1);
-    populatePlaylistCardSection();
+    event.stopPropagation(); //do this again so modal isnt opened
+    const cardIdx = data.findIndex((d) => d.playlistID === card.playlistID); //cant use standrad indexOf on objects. Need to use findIndex and pass it callback so it can iterate through each object knowing what and how to compare
+    data.splice(cardIdx, 1);//once we have index where item is at just remove it with splice
+    populatePlaylistCardSection(); //re render the card section since we deleted something.
   })
 
 
