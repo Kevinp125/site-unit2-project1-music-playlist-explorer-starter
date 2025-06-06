@@ -4,79 +4,79 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Music Playlist Explorer</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    
-    <link rel="stylesheet" href="style.css">
-    
-
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
-    <!--This links webpage to the google font Comic Neue just to match my theme-->
-
-</head>
-<body>
-    <header class = "website-header-container">
-        <h1 id="website-header">Music Playlist Explorer</h1> <!--h1 because it defines what our webpage is about and it goes in the header only one of these-->
-        <div>
-          <a class = "navigation-links" href="index.html"> Featured</a>
-          <a class = "navigation-links" href="playlistpage.html"> All</a>    
-        </div>    
-    </header>
-
-    <!--Main tag is where all well, main important content of page will go. In this case it will be all the playlist cards-->
-    <main>
-
-        <section class="playlist-cards"> <!--This section will contain all of the cards and will be styled with a grid so they all appear nicely and can adjust row / col size depending on different screen sizes-->
-            
-        <!--Inside playlist-cards section articles will be place dynamically by function and loop inside of our script.js-->
-
-
-        </section> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-    </main>
+        <title>Music Playlist Explorer</title>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        
+        <link rel="stylesheet" href="style.css">
+        
 
-    <!--Below outside of our main tags since the modal really isnt part of the playlist cards we have a div containing the modal structure-->
-    <div id = "modal" class="modal-overlay">
-        <div class="modal-content">
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
+        <!--This links webpage to the google font Comic Neue just to match my theme-->
+
+    </head>
+    <body>
+        <header class = "website-header-container">
+            <h1 id="website-header">Music Playlist Explorer</h1> <!--h1 because it defines what our webpage is about and it goes in the header only one of these-->
             <div>
-                <span class="close">&times;</span> <!--&times is the close symbol-->
-            </div>
-        
+            <a class = "navigation-links" href="index.html"> Featured</a>
+            <a class = "navigation-links" href="playlistpage.html"> All</a>    
+            </div>    
+        </header>
 
-            <!--Creating an aside below for playlist picture and title / information that goes on top of modal since it has an inner div-->
-            <aside class="playlist-info"> 
-                <img id="modal-playlist-image" src="assets/img/playlist.png" alt="Playlist Image">
+        <!--Main tag is where all well, main important content of page will go. In this case it will be all the playlist cards-->
+        <main>
+
+            <section class="playlist-cards"> <!--This section will contain all of the cards and will be styled with a grid so they all appear nicely and can adjust row / col size depending on different screen sizes-->
                 
-                <div class="playlist-description-aside" > <!--Making a seperate div since we want these two things to stack on top of each other but be next to the image-->
-                    <h1 id="playlist-title"> Playlist Title </h1> <!--***Ask since modal is over the original webpage if its okay to use h1 here again***-->
-                    <p id="playlist-creator">Creator Name</p>
+            <!--Inside playlist-cards section articles will be place dynamically by function and loop inside of our script.js-->
 
-                    <!--Adding a shuffle button wrapping span in button tag because I am using an svg background-->
-                    <button class = "shuffle-btn">
-                        <span class = "shuffle-btn-text">Shuffle!</span>
-                    </button>
-                </div>
-            </aside>
 
+            </section> 
             
-            <!--After the aside for playlist image and Playlist title / creator name I am going to start an unordered list for all of the songs in the playlist-->
-            <ul id="song-list">
-                <!--In here goes all song banners created from data using functions in our script.js-->
-            </ul>
+        </main>
+
+        <!--Below outside of our main tags since the modal really isnt part of the playlist cards we have a div containing the modal structure-->
+        <div id = "modal" class="modal-overlay">
+            <div class="modal-content">
+                <div>
+                    <span class="close">&times;</span> <!--&times is the close symbol-->
+                </div>
+            
+
+                <!--Creating an aside below for playlist picture and title / information that goes on top of modal since it has an inner div-->
+                <aside class="playlist-info"> 
+                    <img id="modal-playlist-image" src="assets/img/playlist.png" alt="Playlist Image">
+                    
+                    <div class="playlist-description-aside" > <!--Making a seperate div since we want these two things to stack on top of each other but be next to the image-->
+                        <h1 id="playlist-title"> Playlist Title </h1> <!--***Ask since modal is over the original webpage if its okay to use h1 here again***-->
+                        <p id="playlist-creator">Creator Name</p>
+
+                        <!--Adding a shuffle button wrapping span in button tag because I am using an svg background-->
+                        <button class = "shuffle-btn">
+                            <span class = "shuffle-btn-text">Shuffle!</span>
+                        </button>
+                    </div>
+                </aside>
+
+                
+                <!--After the aside for playlist image and Playlist title / creator name I am going to start an unordered list for all of the songs in the playlist-->
+                <ul id="song-list">
+                    <!--In here goes all song banners created from data using functions in our script.js-->
+                </ul>
 
 
+            </div>
         </div>
-    </div>
 
 
-    <footer>
-  
-    </footer>
-    <script src="data/data.js"></script>
-    <script src="script.js"></script>
-</body>
+        <footer>
+    
+        </footer>
+        <script src="data/data.js"></script>
+        <script src="script.js"></script>
+    </body>
 </html>
