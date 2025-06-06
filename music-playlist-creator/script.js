@@ -10,6 +10,7 @@ const formSongHeader = document.getElementById("form-song-header");
 let currentPlaylistData = null; // this is a variable that we will update inside of openModal so that we can use this info for our randomize song section
 let editMode = false;
 let editingPlaylistIdx = null //global variables so we can resuse submit form for editing functionality
+let searchMode = false;
 /* *** BELOW FUNCTIONS HAVE TO DUE WITH OPENING AND CLOSING THE MODAL ***  */
 
 //helper function is going to create a song banner and append it to the unordered list inside our modal
@@ -169,7 +170,7 @@ function createPlaylistCard(card){
 
 //function populates the playlistcard section by iterating over data and calling our createPlayListCard helper function on each piece of data.
 
-function populatePlaylistCardSection(){
+function populatePlaylistCardSection(filteredData){
   playlistCards.innerHTML = "";
 
    //being a little extra defensive here if the data is not null also make sure if there even is any data
@@ -177,6 +178,14 @@ function populatePlaylistCardSection(){
     let emptyData = document.createElement('p');
     emptyData.textContent = 'No playlists added!';
     playlistCards.appendChild(emptyData); 
+  }
+
+  else if(searchMode === true){
+    filteredData.forEach((card) => {
+      createPlaylistCard(card);
+    })
+
+    searchMode = false;
   }
 
   else{
@@ -298,3 +307,51 @@ formContainer.addEventListener("submit", (event) =>{
 
 
 })
+
+
+//Below is search functionality
+
+searchBar = document.getElementById("search-bar");
+submitBtn = document.getElementById("submit-button");
+clearBtn = document.getElementById("clear-button")
+
+
+searchBar.addEventListener("keypress", (e) => {
+  if(e.key === 'Enter'){
+    search(e.target.value);
+  }
+
+})
+
+submitBtn.addEventListener("click", () =>{
+  search(searchBar.value);
+})
+
+clearBtn.addEventListener("click", () =>{
+  searchBar.value = "";
+  populatePlaylistCardSection();
+})
+
+function search(value){
+
+  console.log(value);
+
+
+  let foundPlaylist = null;
+  foundPlaylist = data.filter((playlist) => {
+      return(playlist.playlist_name.toLowerCase().includes(value.toLowerCase()) ||
+              playlist.playlist_author.toLowerCase().includes(value.toLowerCase()))
+  });
+
+  console.log(foundPlaylist);
+
+  if(foundPlaylist.length > 0){
+    searchMode = true;
+    populatePlaylistCardSection(foundPlaylist);
+  }
+  else{
+    playlistCards.innerHTML = `<p>No results found</p>`;
+    
+  }
+
+}
