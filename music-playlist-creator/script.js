@@ -1,17 +1,43 @@
 const modal = document.getElementById("modal"); //get the modal by its id
 const closeBtn = document.getElementsByClassName("close")[0]; //getting the close span remember that getting elementsByClassName returns a collection so we index into zero to get first instancce of close button
+const playlistCards = document.querySelector(".playlist-cards"); //getting the playlist-cards section from the HTML dom so we can append playlist articles to it.
+const songList = document.getElementById("song-list");
+let currentPlaylistData = null; // this is a variable that we will update inside of openModal so that we can use this info for our randomize song section
 
 /* *** BELOW FUNCTIONS HAVE TO DUE WITH OPENING AND CLOSING THE MODAL ***  */
+
+//helper function is going to create a song banner and append it to the unordered list inside our modal
+function createSongBanner(song){
+
+  const songList = document.getElementById("song-list"); //grabbing the <ul> tag which is the parent of the list of songs so we can append songs to it.
+
+  const songBanner = document.createElement("li"); //creating a <li> element in which all song info is going to go.
+
+  //Add all the song info inside of our li element exactly how I had it in the HTML only difference is its a template literal and we can fill in info with the data.
+  songBanner.innerHTML += `
+    <img class = "song-image" src=${song.song_art} alt="Song Image" >
+      <div>
+        <h2>${song.title}</h2>
+        <p>${song.artist}</p>
+        <p>${song.album}</p>
+      </div>
+    <p>${song.time}</p>
+  `
+
+  //finally append this newly created banner onto the ul tag songList
+  songList.appendChild(songBanner);
+}
 
 //function receives data object so that when modal is opened we can fill it in with all of a playlists data
 function openModal(data) { 
   modal.style.display = "block"; //when modal is opened change style to block so it is visible
+  currentPlaylistData = data; //now currentPlaylistdata can be used in the randomize songs function.
+  console.log(currentPlaylistData);
 
   //grab the playlist aside tags by their id so we can alter their textContent to reflect the information inside the data.js
   const modalImg = document.getElementById('modal-playlist-image');
   const modalPlaylistTitle = document.getElementById("playlist-title");
   const modalPlaylistCreator = document.getElementById("playlist-creator");
-  const songList = document.getElementById("song-list");
 
   //updating all the playlist info in the modal dynamically
   modalImg.src = data.playlist_art;
@@ -26,7 +52,6 @@ function openModal(data) {
   data.songs.forEach((song) => {
       createSongBanner(song);
   })
-
 }
 
 closeBtn.onclick = function() { //attached onclick event handler to the close button when clicked the modals display will be set to none again
@@ -38,13 +63,10 @@ window.onclick = function(event) { //also attached the onclick handler to the wi
   }
 }
 
-/* *** BELOW FUNCTIONS HAVE TO DUE WITH DYNAMICALLY POPULATING PLAYLISTS AND CREATING SONG BANNERS***  */
-
-const playlistCards = document.querySelector(".playlist-cards"); //getting the playlist-cards section from the HTML dom so we can append playlist articles to it.
-
+/* *** BELOW FUNCTIONS HAVE TO DUE WITH DYNAMICALLY POPULATING PLAYLISTS***  */
 
 //function will make a card using JS
-const createPlaylistCard = function(card){
+function createPlaylistCard(card){
 
   const playlistArticle = document.createElement('article'); //creates an <article> element
   playlistArticle.className = 'card'; //allows us to give the article its proper class
@@ -114,26 +136,24 @@ function populatePlaylistCardSection(){
   }   
 }
 
+
 populatePlaylistCardSection();
 
-//helper function is going to create a song banner and append it to the unordered list inside our modal
-function createSongBanner(song){
+/* BELOW Logic WILL HANDLE SHUFFLING THE SONGS */
 
-  const songList = document.getElementById("song-list"); //grabbing the <ul> tag which is the parent of the list of songs so we can append songs to it.
+const shuffleBtn = document.querySelector(".shuffle-btn"); //get the shuffleBtn so we can add an eventlistener to it
 
-  const songBanner = document.createElement("li"); //creating a <li> element in which all song info is going to go.
+//Function has inside is an event listener so that when shuffle is clicked songs are shuffled by using sort to randomize actual data first clearing whats on the front end and re rendering it with helper function
+function randomizeSongs(){
 
-  //Add all the song info inside of our li element exactly how I had it in the HTML only difference is its a template literal and we can fill in info with the data.
-  songBanner.innerHTML += `
-    <img class = "song-image" src=${song.song_art} alt="Song Image" >
-      <div>
-        <h2>${song.title}</h2>
-        <p>${song.artist}</p>
-        <p>${song.album}</p>
-      </div>
-    <p>${song.time}</p>
-  `
-
-  //finally append this newly created banner onto the ul tag songList
-  songList.appendChild(songBanner);
+  shuffleBtn.addEventListener("click", () =>{
+    
+    currentPlaylistData.songs.sort(() => Math.random() - 0.5);
+    songList.innerHTML = "";
+    currentPlaylistData.songs.forEach((song) => {
+      createSongBanner(song);
+    })
+  })
 }
+
+randomizeSongs(); 

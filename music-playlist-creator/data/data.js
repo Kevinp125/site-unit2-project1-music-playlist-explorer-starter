@@ -9,6 +9,10 @@ const data = [
       { "title": "Bags", "artist": "Clairo", "album": "Immunity", "time": "4:20", "song_art": "assets/img/song.png" },
       { "title": "Sofia", "artist": "Clairo", "album": "Immunity", "time": "3:09", "song_art": "assets/img/song.png" },
       { "title": "Amoeba", "artist": "Clairo", "album": "Sling", "time": "3:42", "song_art": "assets/img/song.png" },
+      { "title": "Pretty Girl", "artist": "Clairo", "album": "diary 001", "time": "2:58", "song_art": "assets/img/song.png" },
+      { "title": "Your Best American Girl", "artist": "Mitski", "album": "Puberty 2", "time": "3:33", "song_art": "assets/img/song.png" },
+      { "title": "Home", "artist": "Cavetown", "album": "Cavetown", "time": "4:10", "song_art": "assets/img/song.png" },
+      { "title": "Japanese Denim", "artist": "Daniel Caesar", "album": "Pilgrim's Paradise", "time": "4:18", "song_art": "assets/img/song.png" },
     ]
   },
   {
