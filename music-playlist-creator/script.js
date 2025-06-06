@@ -1,7 +1,10 @@
 const modal = document.getElementById("modal"); //get the modal by its id
-const closeBtn = document.getElementsByClassName("close")[0]; //getting the close span remember that getting elementsByClassName returns a collection so we index into zero to get first instancce of close button
+const modalCloseBtn = document.getElementById("modal-close");
 const playlistCards = document.querySelector(".playlist-cards"); //getting the playlist-cards section from the HTML dom so we can append playlist articles to it.
 const songList = document.getElementById("song-list");
+const formOverlay = document.getElementById("form-Overlay");
+const formCloseBtn = document.getElementById("form-close");
+const addPlaylistbtn = document.getElementById("add-song-link");
 let currentPlaylistData = null; // this is a variable that we will update inside of openModal so that we can use this info for our randomize song section
 
 /* *** BELOW FUNCTIONS HAVE TO DUE WITH OPENING AND CLOSING THE MODAL ***  */
@@ -54,9 +57,18 @@ function openModal(data) {
   })
 }
 
-closeBtn.onclick = function() { //attached onclick event handler to the close button when clicked the modals display will be set to none again
+addPlaylistbtn.addEventListener("click", () =>{
+  formOverlay.style.display = "block";
+})
+
+modalCloseBtn.onclick = function() { //attached onclick event handler to the close button when clicked the modals display will be set to none again
   modal.style.display = "none";
 }
+
+formCloseBtn.onclick = function() {
+  formOverlay.style.display = "none";
+}
+
 window.onclick = function(event) { //also attached the onclick handler to the window. If its clicked let us get the event information. If it matches the modal (which is the overlay not the modal-content itself) it means user clicked out of it so hide it again
   if (event.target == modal) {
     modal.style.display = "none";

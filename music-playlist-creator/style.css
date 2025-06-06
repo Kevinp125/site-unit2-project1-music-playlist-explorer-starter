@@ -113,7 +113,7 @@ li:nth-child(even){ /*every even list item is a soft yellow on a black text caus
 }
 
 .modal-overlay {
-    display: block; /* Hidden by default */
+    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
