@@ -8,7 +8,7 @@ let currentPlaylistData = null; // this is a variable that we will update inside
 
 //helper function is going to create a song banner and append it to the unordered list inside our modal
 function createSongBanner(song){
-
+  
   const songList = document.getElementById("song-list"); //grabbing the <ul> tag which is the parent of the list of songs so we can append songs to it.
 
   const songBanner = document.createElement("li"); //creating a <li> element in which all song info is going to go.
