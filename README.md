@@ -82,7 +82,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
     - [X] Name
     - [X] Author
     - ~[ ] Cover image~
-    - [] Add one or more songs to the playlist, specifying the song's:
+    - [X] Add one or more songs to the playlist, specifying the song's:
       - [X] Title
       - [X] Artist
   - [X] The resulting playlist should display in the grid view.
@@ -119,7 +119,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
     - [X] All text in the text input field is deleted
     - [X] All playlists in the `data.json` file are displayed in a grid view
     - [X] **Optional:** If the Add Playlist, Edit Existing Playlist, or Delete Playlist stretch features were implemented:
-      - [ ] If users can add a playlist, added playlists should be included in search results.
+      - [X] If users can add a playlist, added playlists should be included in search results.
       - [X] If users can edit a playlist, search results should reflect the latest edits to each playlist.
       - [X] If users can delete a playlist, deleted playlists should no longer be included in search results.
       - **Note:** You will not be graded on the implementation of this optional subfeature to keep your grade of this stretch feature independent of your implementation of other stretch features. However, we highly suggest including this in your implementation to model realistic behavior of real applications. 
@@ -133,9 +133,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video actually renders and is playable when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+(https://www.loom.com/share/d4ebe6e3e7ef471b9b79785b2a85d461?sid=1d740607-fba1-4cb5-b227-6948ebf56e81)
 
 ### Reflection
 
